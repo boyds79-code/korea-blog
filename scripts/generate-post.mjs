@@ -3,6 +3,7 @@ import path from 'node:path';
 import { getNextTopic } from './lib/topic-sources.mjs';
 import { generateBlogPostDraft } from './lib/anthropic.mjs';
 import { slugify } from './lib/slugify.mjs';
+import { findAndSaveHeroImage } from './lib/images.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'src', 'content', 'blog');
@@ -31,6 +32,17 @@ async function main() {
   }
   slug = path.basename(filePath, '.md');
 
+  const hero = await findAndSaveHeroImage({
+    query: draft.image_query || draft.tags?.[0] || topic,
+    slug,
+    apiKey: process.env.PEXELS_API_KEY,
+  });
+  if (hero) {
+    console.log(`[generate-post] 대표 이미지: ${hero.heroImage} (${hero.heroImageCredit})`);
+  } else {
+    console.log('[generate-post] 대표 이미지 없이 진행합니다.');
+  }
+
   const frontmatter = [
     '---',
     `title: ${yamlString(draft.title)}`,
@@ -39,6 +51,14 @@ async function main() {
     `tags: [${draft.tags.map((t) => yamlString(t)).join(', ')}]`,
     `topicSource: "${source}"`,
     'draft: false',
+    ...(hero
+      ? [
+          `heroImage: ${yamlString(hero.heroImage)}`,
+          `heroImageAlt: ${yamlString(hero.heroImageAlt)}`,
+          `heroImageCredit: ${yamlString(hero.heroImageCredit)}`,
+          `heroImageCreditUrl: ${yamlString(hero.heroImageCreditUrl)}`,
+        ]
+      : []),
     '---',
     '',
   ].join('\n');

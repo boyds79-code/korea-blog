@@ -52,9 +52,14 @@ You must respond by calling the "submit_post" tool exactly once with the complet
               items: { type: 'string' },
               description: '2-5 short lowercase tags, e.g. ["travel", "seoul", "food"]',
             },
+            image_query: {
+              type: 'string',
+              description:
+                'A short (2-4 word) English search phrase to find a relevant, generic stock photo for this post on a stock photo site (e.g. "seoul subway station", "korean street food"). Keep it visual and generic — not a specific named place if a specific photo is unlikely to exist.',
+            },
             body_markdown: { type: 'string', description: 'The full post body in Markdown, per the system instructions.' },
           },
-          required: ['title', 'description', 'tags', 'body_markdown'],
+          required: ['title', 'description', 'tags', 'image_query', 'body_markdown'],
         },
       },
     ],

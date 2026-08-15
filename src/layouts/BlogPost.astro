@@ -8,8 +8,22 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   tags: string[];
+  heroImage?: string;
+  heroImageAlt?: string;
+  heroImageCredit?: string;
+  heroImageCreditUrl?: string;
 }
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  tags,
+  heroImage,
+  heroImageAlt,
+  heroImageCredit,
+  heroImageCreditUrl,
+} = Astro.props;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -18,6 +32,7 @@ const jsonLd = {
   description,
   datePublished: pubDate.toISOString(),
   dateModified: (updatedDate ?? pubDate).toISOString(),
+  ...(heroImage ? { image: heroImage } : {}),
 };
 ---
 <Base title={`${title} | Korea, Explained`} description={description}>
@@ -33,6 +48,21 @@ const jsonLd = {
       </p>
     </header>
 
+    {heroImage && (
+      <figure class="hero">
+        <img src={heroImage} alt={heroImageAlt || title} loading="eager" />
+        {heroImageCredit && (
+          <figcaption>
+            {heroImageCreditUrl ? (
+              <a href={heroImageCreditUrl} target="_blank" rel="noopener nofollow">{heroImageCredit}</a>
+            ) : (
+              heroImageCredit
+            )}
+          </figcaption>
+        )}
+      </figure>
+    )}
+
     <AdSlot position="top" />
 
     <div class="prose">
@@ -46,6 +76,10 @@ const jsonLd = {
 <style>
   .post-header { margin-bottom: 1rem; }
   .meta { color: #666; font-size: 0.85rem; }
+  .hero { margin: 0 0 1.5rem; }
+  .hero img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .hero figcaption { font-size: 0.75rem; color: #999; margin-top: 0.4rem; text-align: right; }
+  .hero figcaption a { color: #999; }
   .prose :global(h2) { margin-top: 2rem; }
   .prose :global(h3) { margin-top: 1.5rem; }
   .prose :global(p) { margin: 1rem 0; }

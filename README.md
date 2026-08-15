@@ -46,6 +46,9 @@ git push -u origin main
 3. (선택) 모델을 바꾸고 싶으면 같은 화면의 **Variables** 탭에서 `CLAUDE_MODEL` 변수를 추가하세요.
    비워두면 `scripts/lib/anthropic.mjs`에 적힌 기본 모델을 씁니다 — 최신 모델 ID는
    https://docs.claude.com/en/docs/about-claude/models 에서 확인 후 필요하면 교체하세요.
+4. (선택, 대표 이미지 자동 삽입용) https://www.pexels.com/api/ 에서 무료 API 키를 발급받아
+   같은 화면에 `PEXELS_API_KEY`라는 이름의 Secret으로 추가하세요. 등록하지 않으면 이미지 없이
+   텍스트만 생성됩니다 — 자세한 내용은 아래 "대표 이미지 자동 삽입" 참고.
 
 ### 4. GitHub Actions에 PR 생성 권한 확인
 저장소 **Settings → Actions → General → Workflow permissions**에서
@@ -78,6 +81,28 @@ git push -u origin main
   PR 리뷰를 강제하는 이유가 이것입니다 — 리뷰를 형식적으로 통과시키지 말고, 실제로 읽고
   고쳐서 머지하는 습관을 들이는 걸 추천합니다.
 
+## 대표 이미지 자동 삽입
+
+`PEXELS_API_KEY`를 등록해두면 글마다 이렇게 자동으로 이미지가 붙습니다.
+
+1. Claude가 글을 쓰면서 `image_query`(예: "seoul subway station")도 같이 생성합니다.
+2. 그 검색어로 [Pexels](https://www.pexels.com) 스톡 사진을 검색해 첫 번째 결과를 가져옵니다.
+3. `public/images/blog/<slug>.jpg`로 저장하고, frontmatter에 `heroImage`, `heroImageAlt`,
+   `heroImageCredit`(사진작가 표시)를 함께 기록합니다.
+4. 글 상단과 홈 화면 목록에 자동으로 노출됩니다.
+
+Pexels 라이선스는 상업적 이용에 저작자 표시가 필수는 아니지만, 관례상 사진 아래에 작게
+"Photo by 000 on Pexels" 크레딧을 자동으로 넣어뒀습니다 (원치 않으면 `BlogPost.astro`의
+`figcaption` 부분을 지우면 됩니다).
+
+키를 등록하지 않았거나, 검색 결과가 없거나, 네트워크 오류가 나도 글 생성 자체는 실패하지
+않고 이미지 없이 진행됩니다 — 이미지가 텍스트 생성을 막는 일은 없습니다.
+
+이미지가 쌓이면 저장소 용량이 점점 커집니다. 개인 블로그 트래픽 수준에서는 신경 쓸 정도가
+아니지만, 나중에 글이 아주 많아지면 이미지를 별도 스토리지(예: Vercel Blob, Cloudinary)로
+옮기는 걸 고려해볼 수 있습니다 — 지금은 과설계를 피하려 가장 단순한 방식(저장소에 직접 저장)을
+택했습니다.
+
 ## 주제 큐 관리 (`topics/queue.yaml`)
 
 - 처음 20개는 이미 채워져 있습니다. 자유롭게 순서를 바꾸거나, 항목을 추가/삭제하세요.
@@ -101,7 +126,7 @@ RSS(`https://news.google.com/rss/search?q=Korea...`)로 대체해뒀습니다.
 
 ```bash
 cp .env.example .env
-# .env에 ANTHROPIC_API_KEY 채우기
+# .env에 ANTHROPIC_API_KEY (그리고 선택적으로 PEXELS_API_KEY) 채우기
 set -a && source .env && set +a
 npm run generate
 ```
@@ -116,10 +141,11 @@ src/content/blog/       실제 글(Markdown). 여기 있는 파일 = 발행된 �
 src/pages/               라우팅 (index, blog/[slug], about, contact, privacy, rss.xml)
 src/layouts/              공통 레이아웃 (Base, BlogPost)
 src/components/AdSlot.astro   애드센스 광고 슬롯 컴포넌트
+public/images/blog/       자동으로 다운로드된 대표 이미지들
 topics/queue.yaml         직접 정한 주제 대기열
 topics/used-trends.json   트렌드 모드에서 이미 쓴 헤드라인 기록 (중복 방지용, 자동 생성됨)
 scripts/generate-post.mjs 메인 초안 생성 스크립트
-scripts/lib/               초안 생성에 쓰이는 하위 모듈들
+scripts/lib/               초안 생성에 쓰이는 하위 모듈들 (topic-sources, anthropic, images, slugify)
 .github/workflows/daily-post.yml   매일 실행되는 자동화
 ```
 

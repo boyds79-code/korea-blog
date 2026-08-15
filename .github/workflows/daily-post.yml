@@ -25,7 +25,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 'lts/*'로 두면 그때그때 최신 LTS를 자동으로 씁니다 - 버전을 고정하면
+          # 시간이 지나면서 매번 이런 "이 버전은 곧 지원 종료" 경고가 반복됩니다.
+          node-version: 'lts/*'
           cache: npm
 
       - name: Install dependencies
@@ -36,6 +38,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: npm run generate
 
       - name: Open pull request for human review
