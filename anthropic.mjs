@@ -4,16 +4,9 @@ const API_URL = 'https://api.anthropic.com/v1/messages';
 // https://docs.claude.com/en/docs/about-claude/models
 const DEFAULT_MODEL = 'claude-sonnet-4-5-20250929';
 
-// body_markdown 안의 이미지 경로에 실제 슬러그를 나중에 끼워 넣기 위한 placeholder.
-// (Claude가 글을 쓰는 시점엔 아직 최종 슬러그를 모르므로, 생성 후 generate-post.mjs에서
-// 이 문자열을 실제 슬러그로 치환합니다.)
-export const SLUG_PLACEHOLDER = '{{SLUG}}';
-
 /**
  * Claude API를 호출해서 블로그 글 초안을 JSON으로 받아옵니다.
- * 이미지는 자동으로 다운로드하지 않고, Claude가 "이런 사진이 필요하다"는 계획(image_plan)만
- * 세우고 본문에 자리(마크다운 이미지 태그)만 잡아둡니다 — 실제 사진은 사용자가 직접
- * 다운로드/생성해서 채워 넣는 구조입니다.
+ * (JSON 강제를 위해 tool_choice로 하나의 tool만 쓰도록 강제합니다 - 파싱 신뢰도를 높이기 위함)
  */
 export async function generateBlogPostDraft({ topic, notes, apiKey, model }) {
   // .env를 GUI 에디터로 저장할 때 섞여 들어갈 수 있는 보이지 않는 공백/줄바꿈 문자 방지
@@ -24,7 +17,7 @@ export async function generateBlogPostDraft({ topic, notes, apiKey, model }) {
 
   const systemPrompt = `You are an experienced English-language blogger who writes about Korean culture, travel, food, and everyday life for an international (mostly US/UK/AU) audience.
 
-Your job: write one complete, SEO-friendly, ORIGINAL blog post based on the given topic, AND plan out 2-4 photos a human editor should take/find/generate for it (you do not generate images yourself — you only plan where they go and what they should show).
+Your job: write one complete, SEO-friendly, ORIGINAL blog post based on the given topic.
 
 Hard requirements:
 - Do not simply summarize or paraphrase a single source. Add practical, specific, useful details (numbers, steps, comparisons, local tips) that make this genuinely more useful than a generic overview.
@@ -35,11 +28,6 @@ Hard requirements:
 - Include one natural place partway through the article (not at the very top or bottom) where the text says literally "<!--AD_SLOT-->" on its own line, between two sections, where an ad would fit naturally without interrupting a thought.
 - Do not fabricate specific prices/statistics you're not reasonably confident about; prefer ranges and general guidance over invented precise numbers when unsure.
 - Avoid generic filler sentences ("Korea is a beautiful country with rich culture...").
-
-Image plan requirements:
-- Plan 2 to 4 images total. Image #1 is always the "cover" image (shown at the top of the post automatically — do NOT also embed image #1 inline in the body, since that would show it twice).
-- For images #2 and onward, embed a real Markdown image tag directly in body_markdown at the point in the article where that photo would help most, using EXACTLY this path pattern: ![alt text](/images/blog/${SLUG_PLACEHOLDER}/N.jpg) where N is the image's position number (2, 3, 4...). Use the literal text "${SLUG_PLACEHOLDER}" — do not invent a slug yourself.
-- Each planned image needs: a filename (always "N.jpg" matching its position number, e.g. "1.jpg", "2.jpg"), a short descriptive alt text (for accessibility/SEO), and a one-sentence description of what the photo should actually show (for whoever is sourcing/shooting/generating it).
 
 You must respond by calling the "submit_post" tool exactly once with the complete post.`;
 
@@ -66,24 +54,14 @@ You must respond by calling the "submit_post" tool exactly once with the complet
               items: { type: 'string' },
               description: '2-5 short lowercase tags, e.g. ["travel", "seoul", "food"]',
             },
-            image_plan: {
-              type: 'array',
-              minItems: 2,
-              maxItems: 4,
-              items: {
-                type: 'object',
-                properties: {
-                  filename: { type: 'string', description: 'e.g. "1.jpg" — must match position order starting at 1' },
-                  alt: { type: 'string', description: 'Short accessibility/SEO alt text for the image.' },
-                  description: { type: 'string', description: 'One sentence describing what this photo should show, for whoever sources/shoots/generates it.' },
-                },
-                required: ['filename', 'alt', 'description'],
-              },
-              description: '2-4 planned images. Item 1 = cover image (not embedded inline). Items 2+ must also appear as Markdown image tags in body_markdown.',
+            image_query: {
+              type: 'string',
+              description:
+                'A short (2-4 word) English search phrase to find a relevant, generic stock photo for this post on a stock photo site (e.g. "seoul subway station", "korean street food"). Keep it visual and generic — not a specific named place if a specific photo is unlikely to exist.',
             },
-            body_markdown: { type: 'string', description: 'The full post body in Markdown, per the system instructions, including inline image tags for image_plan items 2+.' },
+            body_markdown: { type: 'string', description: 'The full post body in Markdown, per the system instructions.' },
           },
-          required: ['title', 'description', 'tags', 'image_plan', 'body_markdown'],
+          required: ['title', 'description', 'tags', 'image_query', 'body_markdown'],
         },
       },
     ],

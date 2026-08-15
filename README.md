@@ -46,9 +46,7 @@ git push -u origin main
 3. (선택) 모델을 바꾸고 싶으면 같은 화면의 **Variables** 탭에서 `CLAUDE_MODEL` 변수를 추가하세요.
    비워두면 `scripts/lib/anthropic.mjs`에 적힌 기본 모델을 씁니다 — 최신 모델 ID는
    https://docs.claude.com/en/docs/about-claude/models 에서 확인 후 필요하면 교체하세요.
-4. (선택, 대표 이미지 자동 삽입용) https://www.pexels.com/api/ 에서 무료 API 키를 발급받아
-   같은 화면에 `PEXELS_API_KEY`라는 이름의 Secret으로 추가하세요. 등록하지 않으면 이미지 없이
-   텍스트만 생성됩니다 — 자세한 내용은 아래 "대표 이미지 자동 삽입" 참고.
+4. 사진은 자동으로 다운로드하지 않습니다 — 아래 "사진은 직접 준비합니다" 참고.
 
 ### 4. GitHub Actions에 PR 생성 권한 확인
 저장소 **Settings → Actions → General → Workflow permissions**에서
@@ -81,27 +79,34 @@ git push -u origin main
   PR 리뷰를 강제하는 이유가 이것입니다 — 리뷰를 형식적으로 통과시키지 말고, 실제로 읽고
   고쳐서 머지하는 습관을 들이는 걸 추천합니다.
 
-## 대표 이미지 자동 삽입
+## 사진은 직접 준비합니다
 
-`PEXELS_API_KEY`를 등록해두면 글마다 이렇게 자동으로 이미지가 붙습니다.
+이 프로젝트는 사진을 자동으로 검색/다운로드하지 않습니다. 대신 Claude가 글을 쓰면서 "이
+글엔 사진이 몇 장, 어디에, 뭘 찍은 게 필요하다"는 계획만 세워서 글 파일에 남겨둡니다.
 
-1. Claude가 글을 쓰면서 `image_query`(예: "seoul subway station")도 같이 생성합니다.
-2. 그 검색어로 [Pexels](https://www.pexels.com) 스톡 사진을 검색해 첫 번째 결과를 가져옵니다.
-3. `public/images/blog/<slug>.jpg`로 저장하고, frontmatter에 `heroImage`, `heroImageAlt`,
-   `heroImageCredit`(사진작가 표시)를 함께 기록합니다.
-4. 글 상단과 홈 화면 목록에 자동으로 노출됩니다.
+1. Claude가 초안을 쓰면서 2~4장짜리 사진 계획을 같이 만듭니다 (1번은 항상 대표/커버 이미지).
+2. 생성된 `.md` 파일 맨 위, frontmatter 바로 아래에 HTML 주석으로 체크리스트가 남습니다.
+   예:
+   ```
+   <!--
+   📷 이 글에 필요한 사진 — public/images/blog/<slug>/ 폴더 안에 아래 파일명 그대로 넣으면 자동으로 연결됩니다.
+   1. 1.jpg (대표/커버 이미지) — A wide shot of Incheon Airport's departure hall
+   2. 2.jpg — Close-up of the AREX train platform signage
+   -->
+   ```
+3. 본문에도 2번 사진부터는 실제 마크다운 이미지 태그(`![...](/images/blog/<slug>/2.jpg)`)가
+   이미 본문 적절한 위치에 들어가 있습니다 — 파일만 그 경로에 넣으면 끝입니다.
+4. 사진(직접 촬영, 무료 스톡사이트에서 다운로드, AI 이미지 생성 등 방법은 자유)을 준비해서
+   `public/images/blog/<slug>/` 폴더에 체크리스트에 적힌 파일명 그대로 넣습니다.
+5. PR이 열려 있는 브랜치에 그 파일을 커밋 후 push하면 (로컬 git 또는 GitHub 웹의
+   "Add file → Upload files") PR에 자동으로 반영됩니다. 머지하면 사진까지 포함해서 발행됩니다.
 
-Pexels 라이선스는 상업적 이용에 저작자 표시가 필수는 아니지만, 관례상 사진 아래에 작게
-"Photo by 000 on Pexels" 크레딧을 자동으로 넣어뒀습니다 (원치 않으면 `BlogPost.astro`의
-`figcaption` 부분을 지우면 됩니다).
+사진을 아직 안 넣은 상태로 PR 미리보기를 열어보면 깨진 이미지 아이콘이 보이는데, 이건
+"아직 안 넣었다"는 정상적인 신호입니다 — 머지 전에만 채우면 됩니다.
 
-키를 등록하지 않았거나, 검색 결과가 없거나, 네트워크 오류가 나도 글 생성 자체는 실패하지
-않고 이미지 없이 진행됩니다 — 이미지가 텍스트 생성을 막는 일은 없습니다.
-
-이미지가 쌓이면 저장소 용량이 점점 커집니다. 개인 블로그 트래픽 수준에서는 신경 쓸 정도가
-아니지만, 나중에 글이 아주 많아지면 이미지를 별도 스토리지(예: Vercel Blob, Cloudinary)로
-옮기는 걸 고려해볼 수 있습니다 — 지금은 과설계를 피하려 가장 단순한 방식(저장소에 직접 저장)을
-택했습니다.
+혹시 특정 글에 빠르게 스톡 사진이라도 채워 넣고 싶다면 `scripts/backfill-hero-image.mjs`가
+여전히 남아있어서 (Pexels API 키가 있다면) 대표 이미지 한 장을 자동으로 채워주는 용도로
+계속 쓸 수 있습니다 — 다만 기본 파이프라인에서는 더 이상 자동 호출되지 않습니다.
 
 ## 주제 큐 관리 (`topics/queue.yaml`)
 

@@ -1,9 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getNextTopic } from './lib/topic-sources.mjs';
-import { generateBlogPostDraft } from './lib/anthropic.mjs';
+import { generateBlogPostDraft, SLUG_PLACEHOLDER } from './lib/anthropic.mjs';
 import { slugify } from './lib/slugify.mjs';
-import { findAndSaveHeroImage } from './lib/images.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'src', 'content', 'blog');
@@ -32,16 +31,8 @@ async function main() {
   }
   slug = path.basename(filePath, '.md');
 
-  const hero = await findAndSaveHeroImage({
-    query: draft.image_query || draft.tags?.[0] || topic,
-    slug,
-    apiKey: process.env.PEXELS_API_KEY,
-  });
-  if (hero) {
-    console.log(`[generate-post] 대표 이미지: ${hero.heroImage} (${hero.heroImageCredit})`);
-  } else {
-    console.log('[generate-post] 대표 이미지 없이 진행합니다.');
-  }
+  const imagePlan = draft.image_plan || [];
+  const cover = imagePlan[0];
 
   const frontmatter = [
     '---',
@@ -51,24 +42,39 @@ async function main() {
     `tags: [${draft.tags.map((t) => yamlString(t)).join(', ')}]`,
     `topicSource: "${source}"`,
     'draft: false',
-    ...(hero
+    ...(cover
       ? [
-          `heroImage: ${yamlString(hero.heroImage)}`,
-          `heroImageAlt: ${yamlString(hero.heroImageAlt)}`,
-          `heroImageCredit: ${yamlString(hero.heroImageCredit)}`,
-          `heroImageCreditUrl: ${yamlString(hero.heroImageCreditUrl)}`,
+          `heroImage: ${yamlString(`/images/blog/${slug}/${cover.filename}`)}`,
+          `heroImageAlt: ${yamlString(cover.alt)}`,
         ]
       : []),
     '---',
     '',
   ].join('\n');
 
-  const body = draft.body_markdown.replace('<!--AD_SLOT-->', '<!-- AD_SLOT: 광고 자동 삽입 위치 표시용, 렌더링에는 영향 없음 -->');
+  // Claude가 이미지 자리에 써넣은 {{SLUG}} placeholder를 실제 슬러그로 치환
+  let body = draft.body_markdown.replaceAll(SLUG_PLACEHOLDER, slug);
+  body = body.replace('<!--AD_SLOT-->', '<!-- AD_SLOT: 광고 자동 삽입 위치 표시용, 렌더링에는 영향 없음 -->');
+
+  const checklist =
+    imagePlan.length > 0
+      ? [
+          '<!--',
+          `📷 이 글에 필요한 사진 (머지 전에 준비해서 넣어주세요) — public/images/blog/${slug}/ 폴더 안에 아래 파일명 그대로 넣으면 자동으로 연결됩니다.`,
+          ...imagePlan.map((img, i) => `${i + 1}. ${img.filename}${i === 0 ? ' (대표/커버 이미지)' : ''} — ${img.description}`),
+          '-->',
+          '',
+        ].join('\n')
+      : '';
 
   fs.mkdirSync(BLOG_DIR, { recursive: true });
-  fs.writeFileSync(filePath, frontmatter + body.trim() + '\n');
+  fs.writeFileSync(filePath, frontmatter + checklist + body.trim() + '\n');
 
   console.log(`[generate-post] 작성 완료: ${filePath}`);
+  if (imagePlan.length > 0) {
+    console.log(`[generate-post] 필요한 사진 ${imagePlan.length}장 (public/images/blog/${slug}/ 안에 넣어주세요):`);
+    imagePlan.forEach((img) => console.log(`  - ${img.filename}: ${img.description}`));
+  }
 
   // GitHub Actions에서 다음 스텝(PR 생성)이 쓸 수 있도록 env로 내보냄
   if (process.env.GITHUB_ENV) {
