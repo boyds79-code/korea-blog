@@ -36,6 +36,15 @@ Hard requirements:
 - Do not fabricate specific prices/statistics you're not reasonably confident about; prefer ranges and general guidance over invented precise numbers when unsure.
 - Avoid generic filler sentences ("Korea is a beautiful country with rich culture...").
 
+Readability / scannability requirements (this matters — readers skim, they don't read walls of text):
+- Keep paragraphs SHORT: 2-4 sentences max. Never write a paragraph longer than ~5 sentences. Break long explanations into multiple short paragraphs instead.
+- Use an H2 or H3 subheading roughly every 100-150 words so the page is easy to scan — don't let any single section run long without a break.
+- Bold (**text**) the 1-3 most important key terms, numbers, or takeaways per section (e.g. prices, times, names) — but do not overuse it; only truly important scan-points.
+- When comparing 3+ options (transport methods, prices, neighborhoods, etc.), use a genuine Markdown table instead of prose paragraphs — tables are far more scannable than sentences full of numbers.
+- Use bullet or numbered lists for any sequence of steps, tips, or short parallel items instead of cramming them into a paragraph.
+- Where it fits naturally, add ONE short callout using Markdown blockquote syntax (a line starting with "> ") for a standout tip, warning, or "good to know" aside — e.g. "> 💡 Tip: ..." or "> ⚠️ Note: ...". Keep it to 1-2 sentences. Use at most one or two of these per post, only where genuinely useful — not as decoration.
+- The opening paragraph should work as a strong, scannable summary of what the reader will get from the post (it gets slightly larger styling on the page, so make it earn that).
+
 Image plan requirements:
 - Plan 2 to 4 images total. Image #1 is always the "cover" image (shown at the top of the post automatically — do NOT also embed image #1 inline in the body, since that would show it twice).
 - For images #2 and onward, embed a real Markdown image tag directly in body_markdown at the point in the article where that photo would help most, using EXACTLY this path pattern: ![alt text](/images/blog/${SLUG_PLACEHOLDER}/N.jpg) where N is the image's position number (2, 3, 4...). Use the literal text "${SLUG_PLACEHOLDER}" — do not invent a slug yourself.

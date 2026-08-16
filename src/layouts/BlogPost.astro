@@ -80,8 +80,34 @@ const jsonLd = {
   .hero img { width: 100%; height: auto; border-radius: 8px; display: block; }
   .hero figcaption { font-size: 0.75rem; color: #999; margin-top: 0.4rem; text-align: right; }
   .hero figcaption a { color: #999; }
-  .prose :global(h2) { margin-top: 2rem; }
-  .prose :global(h3) { margin-top: 1.5rem; }
-  .prose :global(p) { margin: 1rem 0; }
+  .prose { font-size: 1.0625rem; }
+  .prose :global(h2) { margin-top: 2.5rem; padding-bottom: 0.4rem; border-bottom: 1px solid #eee; }
+  .prose :global(h3) { margin-top: 1.75rem; }
+  .prose :global(p) { margin: 1.1rem 0; }
+  .prose :global(p:first-of-type) { font-size: 1.15rem; color: var(--text); }
+  .prose :global(strong) { color: var(--text); }
+  .prose :global(ul), .prose :global(ol) { margin: 1rem 0; padding-left: 1.4rem; }
+  .prose :global(li) { margin: 0.4rem 0; }
+  .prose :global(li p) { margin: 0.3rem 0; }
+  .prose :global(blockquote) {
+    margin: 1.5rem 0;
+    padding: 0.9rem 1.25rem;
+    background: #fdf6f2;
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+  }
+  .prose :global(blockquote p) { margin: 0.3rem 0; }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .prose :global(th), .prose :global(td) {
+    border: 1px solid #eee;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+  }
+  .prose :global(th) { background: #fafafa; font-weight: 600; }
   .prose :global(img) { width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0; display: block; }
 </style>
