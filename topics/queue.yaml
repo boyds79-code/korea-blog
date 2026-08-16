@@ -2,50 +2,42 @@
 # 매일 자동 실행(daily-post.yml)이 돌 때마다 맨 위 항목을 하나 꺼내서
 # 초안을 생성하고, 사용된 항목은 이 파일에서 자동으로 제거됩니다.
 #
-# 이 큐가 비면(예: 20개 다 쓰면) 자동으로 트렌드 기반 주제 탐색 모드로 전환됩니다.
-# (scripts/lib/topic-sources.mjs 의 findTrendTopic 참고)
-#
-# 형식:
-# - topic: "글 제목/주제 (영문 권장, 검색될 만한 표현으로)"
-#   notes: "이 주제에 대해 꼭 다뤘으면 하는 포인트 (선택, 없으면 지워도 됨)"
-
-- topic: "Incheon Airport to Seoul: full transportation guide"
-  notes: "공항철도(AREX), 리무진 버스, 택시, KTX 등 주요 이동수단을 비교해서 다뤄줄 것"
-- topic: "Best Korean subway apps for foreign tourists"
-  notes: ""
-- topic: "How to use a T-money card in Korea"
-  notes: ""
-- topic: "Korean convenience store snacks worth trying"
-  notes: "CU, GS25, 7-Eleven 비교 포함하면 좋음"
-- topic: "Etiquette rules foreigners often get wrong in Korea"
-  notes: ""
-- topic: "Best day trips from Seoul by train"
-  notes: ""
-- topic: "How Korean address system works (and how to use it with taxi apps)"
-  notes: ""
-- topic: "A beginner's guide to Korean street food"
-  notes: ""
-- topic: "How to order coffee like a local in Seoul"
-  notes: ""
-- topic: "Understanding Korean age counting system"
-  notes: ""
-- topic: "Best neighborhoods to stay in Seoul for first-time visitors"
-  notes: ""
-- topic: "How tipping culture works in Korea (spoiler: it doesn't)"
-  notes: ""
-- topic: "Korean sauna (jjimjilbang) etiquette guide for first-timers"
-  notes: ""
-- topic: "How to get a Korean SIM card or eSIM at the airport"
-  notes: ""
-- topic: "Common Korean honorifics explained simply"
-  notes: ""
-- topic: "Best Korean dramas that accurately show Korean daily life"
-  notes: ""
-- topic: "How Korean convenience stores changed the way I travel"
-  notes: ""
-- topic: "Understanding Korean drinking culture and etiquette"
-  notes: ""
-- topic: "Seoul vs Busan: which city should you visit first"
-  notes: ""
-- topic: "How to navigate a Korean traditional market (like Gwangjang)"
-  notes: ""
+# 이 큐가 비면 자동으로 트렌드 기반 주제 탐색 모드로 전환됩니다.
+- topic: Best Korean subway apps for foreign tourists
+  notes: ''
+- topic: How to use a T-money card in Korea
+  notes: ''
+- topic: Korean convenience store snacks worth trying
+  notes: CU, GS25, 7-Eleven 비교 포함하면 좋음
+- topic: Etiquette rules foreigners often get wrong in Korea
+  notes: ''
+- topic: Best day trips from Seoul by train
+  notes: ''
+- topic: How Korean address system works (and how to use it with taxi apps)
+  notes: ''
+- topic: A beginner's guide to Korean street food
+  notes: ''
+- topic: How to order coffee like a local in Seoul
+  notes: ''
+- topic: Understanding Korean age counting system
+  notes: ''
+- topic: Best neighborhoods to stay in Seoul for first-time visitors
+  notes: ''
+- topic: 'How tipping culture works in Korea (spoiler: it doesn''t)'
+  notes: ''
+- topic: Korean sauna (jjimjilbang) etiquette guide for first-timers
+  notes: ''
+- topic: How to get a Korean SIM card or eSIM at the airport
+  notes: ''
+- topic: Common Korean honorifics explained simply
+  notes: ''
+- topic: Best Korean dramas that accurately show Korean daily life
+  notes: ''
+- topic: How Korean convenience stores changed the way I travel
+  notes: ''
+- topic: Understanding Korean drinking culture and etiquette
+  notes: ''
+- topic: 'Seoul vs Busan: which city should you visit first'
+  notes: ''
+- topic: How to navigate a Korean traditional market (like Gwangjang)
+  notes: ''
