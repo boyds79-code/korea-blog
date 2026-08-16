@@ -91,8 +91,9 @@ async function main() {
   fs.mkdirSync(targetDir, { recursive: true });
   console.log(`📁 폴더 준비 완료: ${targetDir}`);
 
-  // 5. 이 글에 필요한 사진 체크리스트 보여주기
+  // 5. 이 글에 필요한 사진 체크리스트 보여주기 + 필요한 파일명 정확히 추출
   const mdPath = path.join('src', 'content', 'blog', `${slug}.md`);
+  let requiredFiles = [];
   if (fs.existsSync(mdPath)) {
     const content = fs.readFileSync(mdPath, 'utf-8');
     const match = content.match(/<!--([\s\S]*?)-->/);
@@ -100,6 +101,8 @@ async function main() {
       console.log('\n📷 필요한 사진 목록:');
       console.log(match[1].trim());
       console.log('');
+      // "1. 1.jpg (대표/커버 이미지) — ..." 같은 줄에서 파일명만 뽑아냄
+      requiredFiles = [...match[1].matchAll(/^\s*\d+\.\s+(\S+)/gm)].map((m) => m[1]);
     }
   }
 
@@ -110,15 +113,34 @@ async function main() {
     // 무시 — Finder가 안 열려도 사용자가 직접 경로를 찾아가면 됨
   }
 
-  console.log(`👉 방금 열린 Finder 창(${targetDir})에 위 체크리스트의 파일명 그대로 사진을 넣어주세요.`);
-  await rl.question('사진을 다 넣었으면 Enter를 누르세요... ');
+  console.log(`👉 방금 열린 Finder 창(${targetDir})에 위 체크리스트의 파일명 그대로(확장자까지 정확히) 사진을 넣어주세요.`);
 
-  // 7. 파일이 실제로 들어왔는지 확인
-  const files = fs.readdirSync(targetDir).filter((f) => !f.startsWith('.'));
-  if (files.length === 0) {
-    console.log('⚠️  폴더가 비어있어서 중단합니다. 사진을 넣은 뒤 다시 실행해주세요.');
-    rl.close();
-    return;
+  // 7. 파일이 실제로 들어왔는지 + 파일명이 정확히 맞는지 확인 (안 맞으면 다시 물어봄)
+  let files = [];
+  for (;;) {
+    await rl.question('사진을 다 넣었으면 Enter를 누르세요... ');
+    files = fs.readdirSync(targetDir).filter((f) => !f.startsWith('.'));
+
+    if (files.length === 0) {
+      console.log('⚠️  폴더가 비어있습니다. 사진을 넣은 뒤 다시 Enter를 눌러주세요.');
+      continue;
+    }
+
+    if (requiredFiles.length > 0) {
+      const missing = requiredFiles.filter((f) => !files.includes(f));
+      if (missing.length > 0) {
+        console.log('⚠️  아래 파일명이 정확히 안 보입니다 (대소문자·확장자까지 완전히 같아야 합니다):');
+        missing.forEach((f) => console.log(`   - ${f}`));
+        console.log(`   지금 폴더 안에 있는 파일: ${files.join(', ')}`);
+        const answer = await rl.question(
+          '파일명을 맞춰서 다시 넣으셨다면 그냥 Enter, 그래도 이 상태로 진행하려면 "y" 입력: '
+        );
+        if (answer.trim().toLowerCase() !== 'y') {
+          continue;
+        }
+      }
+    }
+    break;
   }
   console.log(`✅ 확인된 파일: ${files.join(', ')}`);
 
