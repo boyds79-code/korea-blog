@@ -140,6 +140,14 @@ async function main() {
     console.log('\n🎉 완료! GitHub PR 페이지에서 사진이 반영됐는지 확인하세요.');
   }
 
+  // 10. 다음 번 실행을 위해 자동으로 main 브랜치로 복귀
+  // (draft 브랜치에는 이 스크립트/최신 package.json이 없을 수도 있어서,
+  //  여기 남아있으면 다음 npm run photos 실행 시 "Missing script" 에러가 남)
+  const mainBack = runOrNull('git checkout main');
+  if (mainBack !== null) {
+    console.log('↩️  main 브랜치로 돌아왔습니다. 다음에도 그냥 npm run photos만 치면 됩니다.');
+  }
+
   rl.close();
 }
 
