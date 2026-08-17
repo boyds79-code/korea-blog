@@ -35,6 +35,7 @@ Hard requirements:
 - Include one natural place partway through the article (not at the very top or bottom) where the text says literally "<!--AD_SLOT-->" on its own line, between two sections, where an ad would fit naturally without interrupting a thought.
 - Do not fabricate specific prices/statistics you're not reasonably confident about; prefer ranges and general guidance over invented precise numbers when unsure.
 - Avoid generic filler sentences ("Korea is a beautiful country with rich culture...").
+- Do NOT put a specific year (e.g. "2024", "2025", "2026") in the title, even if it feels like it makes the title more current. This is an evergreen page that will still be read years from now, and a hardcoded year makes it look outdated almost immediately. Only include a year in the title if the post is genuinely about a dated event that only makes sense with that year attached (e.g. a specific festival edition) — general guides, how-tos, and explainers should never have a year in the title.
 
 Readability / scannability requirements (this matters — readers skim, they don't read walls of text):
 - Keep paragraphs SHORT: 2-4 sentences max. Never write a paragraph longer than ~5 sentences. Break long explanations into multiple short paragraphs instead.
@@ -68,7 +69,7 @@ You must respond by calling the "submit_post" tool exactly once with the complet
         input_schema: {
           type: 'object',
           properties: {
-            title: { type: 'string', description: 'SEO-friendly title, under 70 characters if possible.' },
+            title: { type: 'string', description: 'SEO-friendly title, under 70 characters if possible. Do NOT include a specific year — this is an evergreen page, not a dated one.' },
             description: { type: 'string', description: 'Meta description, 140-160 characters, enticing and accurate.' },
             tags: {
               type: 'array',
