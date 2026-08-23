@@ -33,11 +33,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate draft post
+      - name: Generate draft post (+ AI images if GEMINI_API_KEY is set)
         id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: npm run generate
 
       - name: Open pull request for human review
@@ -58,12 +60,13 @@ jobs:
             1. Read the full draft for factual accuracy — the model can be wrong about specifics.
             2. Make sure it adds real value beyond a generic summary (tighten anything generic/filler).
             3. Check the title/description read naturally and aren't keyword-stuffed.
-            4. **Add the planned photos.** Open the changed `.md` file — the top has an HTML
-               comment listing exactly which image files this post needs and what each should
-               show. Download/generate/take those photos yourself and add them to
-               `public/images/blog/<slug>/` using the exact filenames listed, then commit them
-               to this same branch (either locally with `git`, or via GitHub's web UI: switch to
-               this PR's branch and use "Add file → Upload files").
+            4. **Check the images.** If `GEMINI_API_KEY` is configured, images are already
+               auto-generated and committed to this branch — just look them over in the "Files
+               changed" tab. If any are missing (Gemini can fail per-image), the top of the
+               changed `.md` file has an HTML comment listing exactly which ones still need an
+               image, with a ready-to-use AI image prompt for each. Copy each prompt into
+               https://www.bing.com/images/create (free), save the result with the exact filename
+               listed, and add it to `public/images/blog/<slug>/` on this branch.
             5. Merge this PR to publish (Vercel will auto-deploy on merge to `main`).
 
             If this post shouldn't be published, just close this PR without merging —

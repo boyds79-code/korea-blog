@@ -46,7 +46,15 @@ git push -u origin main
 3. (선택) 모델을 바꾸고 싶으면 같은 화면의 **Variables** 탭에서 `CLAUDE_MODEL` 변수를 추가하세요.
    비워두면 `scripts/lib/anthropic.mjs`에 적힌 기본 모델을 씁니다 — 최신 모델 ID는
    https://docs.claude.com/en/docs/about-claude/models 에서 확인 후 필요하면 교체하세요.
-4. 사진은 자동으로 다운로드하지 않습니다 — 아래 "사진은 직접 준비합니다" 참고.
+4. 아래 "이미지는 AI로 생성합니다" 참고.
+
+### 3-1. (추천) Gemini API 키로 이미지까지 완전 자동화
+1. https://aistudio.google.com/apikey 에서 무료로 API 키를 발급받으세요.
+2. 같은 저장소 **Settings → Secrets and variables → Actions → New repository secret**
+   - Name: `GEMINI_API_KEY`
+   - Value: 발급받은 키
+3. 이걸 등록해두면 PR이 열릴 때 이미지까지 이미 채워져서 옵니다 — `npm run photos`를 안 써도 됩니다.
+   등록하지 않으면 예전처럼 프롬프트만 만들어지고 사람이 직접 채워야 합니다.
 
 ### 4. GitHub Actions에 PR 생성 권한 확인
 저장소 **Settings → Actions → General → Workflow permissions**에서
@@ -79,29 +87,37 @@ git push -u origin main
   PR 리뷰를 강제하는 이유가 이것입니다 — 리뷰를 형식적으로 통과시키지 말고, 실제로 읽고
   고쳐서 머지하는 습관을 들이는 걸 추천합니다.
 
-## 사진은 직접 준비합니다
+## 이미지는 AI로 생성합니다
 
-이 프로젝트는 사진을 자동으로 검색/다운로드하지 않습니다. 대신 Claude가 글을 쓰면서 "이
-글엔 사진이 몇 장, 어디에, 뭘 찍은 게 필요하다"는 계획만 세워서 글 파일에 남겨둡니다.
+### GEMINI_API_KEY를 등록한 경우 (완전 자동)
+글이 생성되는 시점(`scripts/lib/gemini-images.mjs`)에 각 이미지의 AI 프롬프트로 Gemini를 호출해
+실제 이미지 파일을 만들고 바로 `public/images/blog/<slug>/`에 저장합니다. PR이 열릴 때 이미
+이미지가 포함되어 있으니, **PR을 열어 내용 + 이미지를 확인하고 머지만 하면 끝**입니다.
 
-1. Claude가 초안을 쓰면서 2~4장짜리 사진 계획을 같이 만듭니다 (1번은 항상 대표/커버 이미지).
+일부 이미지 생성만 실패하는 경우도 있습니다 (네트워크 오류, 안전 필터 차단 등) — 이때는 그
+이미지만 아래 수동 체크리스트에 남고, 나머지는 이미 폴더에 들어가 있습니다.
+
+### GEMINI_API_KEY가 없는 경우 (수동)
+1. Claude가 초안을 쓰면서 2~4장짜리 이미지 계획을 같이 만듭니다 (1번은 항상 대표/커버 이미지).
 2. 생성된 `.md` 파일 맨 위, frontmatter 바로 아래에 HTML 주석으로 체크리스트가 남습니다.
    예:
    ```
    <!--
-   📷 이 글에 필요한 사진 — public/images/blog/<slug>/ 폴더 안에 아래 파일명 그대로 넣으면 자동으로 연결됩니다.
-   1. 1.jpg (대표/커버 이미지) — A wide shot of Incheon Airport's departure hall
-   2. 2.jpg — Close-up of the AREX train platform signage
+   🎨 이 글에 필요한 AI 생성 이미지 — public/images/blog/<slug>/ 폴더 안에 아래 파일명 그대로 넣으면 자동으로 연결됩니다.
+   무료 생성 도구: https://www.bing.com/images/create
+   1. 1.jpg (대표/커버 이미지) — 프롬프트: A wide-angle photo of Incheon Airport's departure hall, bright and modern, travel photography style
+   2. 2.jpg — 프롬프트: Close-up of a modern train platform, motion blur, travel photography style
    -->
    ```
-3. 본문에도 2번 사진부터는 실제 마크다운 이미지 태그(`![...](/images/blog/<slug>/2.jpg)`)가
+3. 본문에도 2번 이미지부터는 실제 마크다운 이미지 태그(`![...](/images/blog/<slug>/2.jpg)`)가
    이미 본문 적절한 위치에 들어가 있습니다 — 파일만 그 경로에 넣으면 끝입니다.
-4. 사진(직접 촬영, 무료 스톡사이트에서 다운로드, AI 이미지 생성 등 방법은 자유)을 준비해서
-   `public/images/blog/<slug>/` 폴더에 체크리스트에 적힌 파일명 그대로 넣습니다.
-5. PR이 열려 있는 브랜치에 그 파일을 커밋 후 push하면 (로컬 git 또는 GitHub 웹의
-   "Add file → Upload files") PR에 자동으로 반영됩니다. 머지하면 사진까지 포함해서 발행됩니다.
+4. `npm run photos`를 실행하면 해당 draft PR 브랜치로 자동 전환되고, 이미지 폴더가 열리고,
+   위 프롬프트 체크리스트가 콘솔에 그대로 표시됩니다.
+5. 각 프롬프트를 복사해서 https://www.bing.com/images/create (무료, Microsoft 계정만 있으면 됨)
+   에 붙여넣고, 생성된 이미지를 다운로드해서 체크리스트에 적힌 파일명 그대로 저장합니다.
+6. 폴더에 다 넣고 스크립트에서 Enter를 누르면 자동으로 git add/commit/push까지 됩니다.
 
-사진을 아직 안 넣은 상태로 PR 미리보기를 열어보면 깨진 이미지 아이콘이 보이는데, 이건
+이미지를 아직 안 넣은 상태로 PR 미리보기를 열어보면 깨진 이미지 아이콘이 보이는데, 이건
 "아직 안 넣었다"는 정상적인 신호입니다 — 머지 전에만 채우면 됩니다.
 
 혹시 특정 글에 빠르게 스톡 사진이라도 채워 넣고 싶다면 `scripts/backfill-hero-image.mjs`가
@@ -131,7 +147,7 @@ RSS(`https://news.google.com/rss/search?q=Korea...`)로 대체해뒀습니다.
 
 ```bash
 cp .env.example .env
-# .env에 ANTHROPIC_API_KEY (그리고 선택적으로 PEXELS_API_KEY) 채우기
+# .env에 ANTHROPIC_API_KEY (그리고 선택적으로 GEMINI_API_KEY) 채우기
 set -a && source .env && set +a
 npm run generate
 ```
@@ -150,7 +166,8 @@ public/images/blog/       자동으로 다운로드된 대표 이미지들
 topics/queue.yaml         직접 정한 주제 대기열
 topics/used-trends.json   트렌드 모드에서 이미 쓴 헤드라인 기록 (중복 방지용, 자동 생성됨)
 scripts/generate-post.mjs 메인 초안 생성 스크립트
-scripts/lib/               초안 생성에 쓰이는 하위 모듈들 (topic-sources, anthropic, images, slugify)
+scripts/lib/               초안 생성에 쓰이는 하위 모듈들 (topic-sources, anthropic, gemini-images, images, slugify)
+scripts/add-photos.mjs    이미지 수동 업로드 자동화 (npm run photos) — GEMINI_API_KEY가 없거나 일부 실패했을 때만 필요
 .github/workflows/daily-post.yml   매일 실행되는 자동화
 ```
 

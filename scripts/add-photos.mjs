@@ -1,8 +1,10 @@
 #!/usr/bin/env node
-// 사진 업로드 자동화 도우미.
+// 이미지 업로드 자동화 도우미.
 // 하는 일: 열려있는 draft PR 브랜치를 찾아서 → 그 브랜치로 체크아웃 →
 // public/images/blog/<slug>/ 폴더를 자동 생성 → Finder로 열어줌 →
-// 사용자가 사진을 넣고 Enter를 누르면 자동으로 git add/commit/push.
+// (GEMINI_API_KEY가 설정돼 있으면 이미지가 이미 자동 생성되어 폴더에 들어가 있을 수
+// 있습니다 — 그럴 땐 확인만 하고 그냥 Enter 누르면 됩니다) →
+// 사용자가 이미지를 넣고 Enter를 누르면 자동으로 git add/commit/push.
 //
 // 실행: npm run photos
 
@@ -86,19 +88,19 @@ async function main() {
     run(`git checkout -b ${branch} origin/${branch}`);
   }
 
-  // 4. 사진 폴더 생성
+  // 4. 이미지 폴더 생성
   const targetDir = path.join('public', 'images', 'blog', slug);
   fs.mkdirSync(targetDir, { recursive: true });
   console.log(`📁 폴더 준비 완료: ${targetDir}`);
 
-  // 5. 이 글에 필요한 사진 체크리스트 보여주기 + 필요한 파일명 정확히 추출
+  // 5. 이 글에 필요한 이미지 체크리스트 보여주기 + 필요한 파일명 정확히 추출
   const mdPath = path.join('src', 'content', 'blog', `${slug}.md`);
   let requiredFiles = [];
   if (fs.existsSync(mdPath)) {
     const content = fs.readFileSync(mdPath, 'utf-8');
     const match = content.match(/<!--([\s\S]*?)-->/);
     if (match) {
-      console.log('\n📷 필요한 사진 목록:');
+      console.log('\n🎨 이미지 체크리스트:');
       console.log(match[1].trim());
       console.log('');
       // "1. 1.jpg (대표/커버 이미지) — ..." 같은 줄에서 파일명만 뽑아냄
@@ -113,16 +115,16 @@ async function main() {
     // 무시 — Finder가 안 열려도 사용자가 직접 경로를 찾아가면 됨
   }
 
-  console.log(`👉 방금 열린 Finder 창(${targetDir})에 위 체크리스트의 파일명 그대로(확장자까지 정확히) 사진을 넣어주세요.`);
+  console.log(`👉 이미지가 이미 자동 생성되어 있으면 확인만 하고 Enter, 아니면 위 프롬프트로 만든 이미지를 방금 열린 Finder 창(${targetDir})에 체크리스트의 파일명 그대로(확장자까지 정확히) 넣어주세요.`);
 
   // 7. 파일이 실제로 들어왔는지 + 파일명이 정확히 맞는지 확인 (안 맞으면 다시 물어봄)
   let files = [];
   for (;;) {
-    await rl.question('사진을 다 넣었으면 Enter를 누르세요... ');
+    await rl.question('이미지를 다 넣었으면 Enter를 누르세요... ');
     files = fs.readdirSync(targetDir).filter((f) => !f.startsWith('.'));
 
     if (files.length === 0) {
-      console.log('⚠️  폴더가 비어있습니다. 사진을 넣은 뒤 다시 Enter를 눌러주세요.');
+      console.log('⚠️  폴더가 비어있습니다. 이미지를 넣은 뒤 다시 Enter를 눌러주세요.');
       continue;
     }
 

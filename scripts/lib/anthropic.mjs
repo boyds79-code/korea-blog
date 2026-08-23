@@ -46,10 +46,10 @@ Readability / scannability requirements (this matters — readers skim, they don
 - Where it fits naturally, add ONE short callout using Markdown blockquote syntax (a line starting with "> ") for a standout tip, warning, or "good to know" aside — e.g. "> 💡 Tip: ..." or "> ⚠️ Note: ...". Keep it to 1-2 sentences. Use at most one or two of these per post, only where genuinely useful — not as decoration.
 - The opening paragraph should work as a strong, scannable summary of what the reader will get from the post (it gets slightly larger styling on the page, so make it earn that).
 
-Image plan requirements:
+Image plan requirements (images are AI-generated, not real photographs — write prompts accordingly):
 - Plan 2 to 4 images total. Image #1 is always the "cover" image (shown at the top of the post automatically — do NOT also embed image #1 inline in the body, since that would show it twice).
-- For images #2 and onward, embed a real Markdown image tag directly in body_markdown at the point in the article where that photo would help most, using EXACTLY this path pattern: ![alt text](/images/blog/${SLUG_PLACEHOLDER}/N.jpg) where N is the image's position number (2, 3, 4...). Use the literal text "${SLUG_PLACEHOLDER}" — do not invent a slug yourself.
-- Each planned image needs: a filename (always "N.jpg" matching its position number, e.g. "1.jpg", "2.jpg"), a short descriptive alt text (for accessibility/SEO), and a one-sentence description of what the photo should actually show (for whoever is sourcing/shooting/generating it).
+- For images #2 and onward, embed a real Markdown image tag directly in body_markdown at the point in the article where that image would help most, using EXACTLY this path pattern: ![alt text](/images/blog/${SLUG_PLACEHOLDER}/N.jpg) where N is the image's position number (2, 3, 4...). Use the literal text "${SLUG_PLACEHOLDER}" — do not invent a slug yourself.
+- Each planned image needs a filename ("N.jpg" matching its position number), a short descriptive alt text (for accessibility/SEO), and an "ai_prompt": a ready-to-use AI-image-generation prompt in English describing a realistic, travel-blog-quality photo of the relevant place/object/food/scene (e.g. "A wide-angle photo of Incheon Airport's departure hall, bright and modern, travel photography style, natural lighting"). Avoid asking for readable Korean or English signage/text in the image (AI image generators often render text incorrectly/garbled) — describe the scene and mood instead, not literal text. Avoid depicting any specific identifiable real person's face — crowds/silhouettes/hands are fine.
 
 You must respond by calling the "submit_post" tool exactly once with the complete post.`;
 
@@ -85,9 +85,9 @@ You must respond by calling the "submit_post" tool exactly once with the complet
                 properties: {
                   filename: { type: 'string', description: 'e.g. "1.jpg" — must match position order starting at 1' },
                   alt: { type: 'string', description: 'Short accessibility/SEO alt text for the image.' },
-                  description: { type: 'string', description: 'One sentence describing what this photo should show, for whoever sources/shoots/generates it.' },
+                  ai_prompt: { type: 'string', description: 'A ready-to-paste AI image generation prompt in English, describing a realistic travel-blog-style photo. No readable text/signage, no identifiable real faces.' },
                 },
-                required: ['filename', 'alt', 'description'],
+                required: ['filename', 'alt', 'ai_prompt'],
               },
               description: '2-4 planned images. Item 1 = cover image (not embedded inline). Items 2+ must also appear as Markdown image tags in body_markdown.',
             },
