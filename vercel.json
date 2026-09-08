@@ -1,0 +1,293 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/korea/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/recipes/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/entertainment/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/beauty/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "korea.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/korea/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "recipes.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/recipes/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "enter.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/entertainment/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "beauty.hey-driver.com"
+        }
+      ],
+      "destination": "https://hey-driver.com/beauty/",
+      "permanent": true
+    }
+  ]
+}
