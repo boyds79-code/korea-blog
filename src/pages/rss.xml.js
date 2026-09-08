@@ -26,7 +26,7 @@ export async function GET(context) {
     .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
   return rss({
-    title: 'Hey Driver',
+    title: 'Korea Explained',
     description: 'Korea, Explained in culture, food, entertainment, and beauty.',
     site: context.site,
     items,
