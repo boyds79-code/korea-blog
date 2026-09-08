@@ -1,0 +1,36 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import RecipePost from '../../layouts/RecipePost.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('recipes', ({ data }) => data.draft !== true);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'recipes'>;
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<RecipePost
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  tags={post.data.tags}
+  prepTime={post.data.prepTime}
+  cookTime={post.data.cookTime}
+  servings={post.data.servings}
+  difficulty={post.data.difficulty}
+  ingredients={post.data.ingredients}
+  heroImage={post.data.heroImage}
+  heroImageAlt={post.data.heroImageAlt}
+  heroImageCredit={post.data.heroImageCredit}
+  heroImageCreditUrl={post.data.heroImageCreditUrl}
+>
+  <Content />
+</RecipePost>

@@ -5,7 +5,7 @@ interface Props {
   canonicalPath?: string;
 }
 const { title, description, canonicalPath = Astro.url.pathname } = Astro.props;
-const siteUrl = Astro.site ?? new URL('https://your-domain-here.com');
+const siteUrl = Astro.site ?? new URL('https://hey-driver.com');
 const canonicalURL = new URL(canonicalPath, siteUrl);
 ---
 <!doctype html>
@@ -31,12 +31,12 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
   <body>
     <header class="site-header">
       <nav>
-        <a class="brand" href="/">Korea, Explained</a>
+        <a class="brand" href="/">Hey Driver</a>
         <div class="links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy</a>
+          <a href="/korea/">Korea</a>
+          <a href="/recipes/">Recipes</a>
+          <a href="/entertainment/">Entertainment</a>
+          <a href="/beauty/">Beauty</a>
         </div>
       </nav>
     </header>
@@ -44,7 +44,10 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
       <slot />
     </main>
     <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} Korea, Explained. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a>
+      </p>
+      <p>&copy; {new Date().getFullYear()} Hey Driver. All rights reserved.</p>
     </footer>
   </body>
 </html>
@@ -80,6 +83,8 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
   .brand {
     font-weight: 700;
@@ -92,6 +97,7 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
     color: var(--muted);
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 600;
   }
   .links a:hover { color: var(--accent); }
   a { color: var(--accent); }
@@ -104,4 +110,6 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
     padding: 2rem 0;
     border-top: 1px solid #eee;
   }
+  .footer-links { margin-bottom: 0.5rem; }
+  .footer-links a { color: var(--muted); }
 </style>

@@ -1,0 +1,71 @@
+# 레시피 주제 대기열입니다. 순서 = 발행 우선순위입니다.
+# 위쪽은 외국인들이 많이 검색/좋아하는 "인기 한식"(tier: popular), 아래쪽은 한국 셰프
+# 유튜브(승우아빠, 자취요리 스타일 등)에서 영감을 받은 "간단 레시피"(tier: chef-simple)입니다.
+# 매일 자동 실행이 돌 때마다 맨 위 항목을 하나 꺼내서 초안을 생성하고, 사용된 항목은
+# 이 파일에서 자동으로 제거됩니다. 순서를 자유롭게 바꾸거나 항목을 추가/삭제해도 됩니다.
+#
+# 형식:
+# - dish: "요리 이름 (영문 권장)"
+#   tier: "popular" | "chef-simple"
+#   notes: "이 레시피에서 꼭 다뤘으면 하는 포인트 (선택)"
+#   referenceStyle: "톤/스타일 참고용 채널·블로그 (선택, 내용을 베끼라는 뜻이 아니라 톤 참고용)"
+- dish: Eomuk Guk / Odeng (Korean Fish Cake Soup)
+  tier: popular
+  notes: 길거리 분식 느낌, 국물 육수 간단하게 내는 법
+  referenceStyle: Future Neighbor 톤 참고
+- dish: Doenjang Jjigae (Soybean Paste Stew)
+  tier: popular
+  notes: 된장 브랜드별 짠맛 차이 언급, 애호박/두부 조합
+  referenceStyle: Korean Bapsang 톤 참고
+- dish: Samgyetang (Ginseng Chicken Soup)
+  tier: popular
+  notes: 찹쌀/인삼 구하기 어려울 때 대체재 제안
+  referenceStyle: Maangchi 톤 참고
+- dish: Rabokki (Ramen + Tteokbokki)
+  tier: popular
+  notes: 분식집 인기 조합, 치즈 추가 변형
+  referenceStyle: Seonkyoung Longest 톤 참고
+- dish: Three Easy Banchan for Beginners (Kongnamul, Sigeumchi, Eggs)
+  tier: popular
+  notes: 반찬 개념 설명, 한 번에 3가지 만들어서 밥상 차리는 법
+  referenceStyle: Korean Bapsang, My Korean Kitchen 톤 참고
+- dish: Tuna Mayo Rice Bowl (Chamchi Mayo Deopbap)
+  tier: chef-simple
+  notes: 한국 자취생들이 5분 안에 만드는 대표 메뉴로 소개
+  referenceStyle: 승우아빠 스타일 - 재료 최소화, 초간단
+- dish: Spam Fried Rice (Spam Bokkeumbap)
+  tier: chef-simple
+  notes: 김치 없어도 되는 버전으로 소개
+  referenceStyle: 승우아빠, 자취요리 스타일
+- dish: Soy Sauce Marinated Eggs (Mayak Gyeran)
+  tier: chef-simple
+  notes: 밥도둑 반찬으로 소개, 절이는 최소 시간 명시
+  referenceStyle: 자취요리 스타일 - 냉장고에 두고 먹는 밑반찬
+- dish: Gyeranjjim (Quick Steamed Egg)
+  tier: chef-simple
+  notes: 전자레인지 버전과 냄비 버전 둘 다 소개
+  referenceStyle: 자취요리 스타일 - 5분 완성
+- dish: 5-Minute Kimchi Stir-fry Side Dish (Kimchi Bokkeum)
+  tier: chef-simple
+  notes: 반찬 하나로 밥 한 그릇 뚝딱 콘셉트
+  referenceStyle: 승우아빠 스타일
+- dish: Simplified Cheese Buldak Noodles at Home
+  tier: chef-simple
+  notes: 시판 불닭볶음면에 치즈 추가하는 인기 조합 소개
+  referenceStyle: 자취요리 유튜브에서 흔한 라면 꿀조합 스타일
+- dish: One-Pan Braised Tofu (Dubu Jorim)
+  tier: chef-simple
+  notes: 재료 5개 이하로 구성, 프라이팬 하나로 완성
+  referenceStyle: 자취요리 스타일 - 최소 재료
+- dish: Rice Cooker Korean Recipes for Beginners
+  tier: chef-simple
+  notes: 밥솥으로 만드는 찜닭/영양밥 등 여러 메뉴 아이디어 소개
+  referenceStyle: 자취요리 유튜브 밥솥 요리 콘텐츠 참고
+- dish: Doenjang Jjigae for One (Single-Serving Version)
+  tier: chef-simple
+  notes: 1인분 계량, 자취생 냉장고 재료로 만드는 버전
+  referenceStyle: 승우아빠 스타일
+- dish: Shortcut Japchae Using Pre-Cut Vegetables
+  tier: chef-simple
+  notes: 재료 손질 시간 줄이는 마트 활용 팁
+  referenceStyle: 자취요리 스타일 - 시간 단축

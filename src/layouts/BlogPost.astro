@@ -12,6 +12,7 @@ interface Props {
   heroImageAlt?: string;
   heroImageCredit?: string;
   heroImageCreditUrl?: string;
+  siteName?: string;
 }
 const {
   title,
@@ -23,6 +24,7 @@ const {
   heroImageAlt,
   heroImageCredit,
   heroImageCreditUrl,
+  siteName = 'Hey Driver',
 } = Astro.props;
 
 const jsonLd = {
@@ -35,7 +37,7 @@ const jsonLd = {
   ...(heroImage ? { image: heroImage } : {}),
 };
 ---
-<Base title={`${title} | Korea, Explained`} description={description}>
+<Base title={`${title} | ${siteName}`} description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article>
     <header class="post-header">

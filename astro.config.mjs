@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-const SITE_URL = 'https://korea.hey-driver.com';
+const SITE_URL = 'https://hey-driver.com';
 
 export default defineConfig({
   site: SITE_URL,

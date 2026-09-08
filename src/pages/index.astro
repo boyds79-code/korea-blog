@@ -2,42 +2,100 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
-const allPosts = await getCollection('blog', ({ data }) => data.draft !== true);
-const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+async function latest(name: 'korea' | 'recipes' | 'entertainment' | 'beauty') {
+  const posts = await getCollection(name, ({ data }) => data.draft !== true);
+  return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+}
+
+const sections = [
+  {
+    key: 'korea',
+    href: '/korea/',
+    title: 'Korea, Explained',
+    blurb: 'Culture, travel logistics, and everyday-life quirks — for anyone visiting or just curious.',
+    posts: await latest('korea'),
+  },
+  {
+    key: 'recipes',
+    href: '/recipes/',
+    title: 'Korean Recipes, Explained',
+    blurb: 'Approachable Korean home cooking: stews, stir-fries, rice bowls, and quick banchan.',
+    posts: await latest('recipes'),
+  },
+  {
+    key: 'entertainment',
+    href: '/entertainment/',
+    title: 'K-Entertainment, Explained',
+    blurb: 'Context behind the K-pop, K-drama, and film moments that go global.',
+    posts: await latest('entertainment'),
+  },
+  {
+    key: 'beauty',
+    href: '/beauty/',
+    title: 'K-Beauty, Explained',
+    blurb: 'Korean skincare ingredients and routines, explained in plain English.',
+    posts: await latest('beauty'),
+  },
+];
 ---
 <Base
-  title="Korea, Explained — Culture, Travel & Everyday Life in Korea"
-  description="Practical guides and cultural insights about Korea for English-speaking readers: travel tips, food, K-culture, and everyday life explained."
+  title="Hey Driver — Korea, Explained in Culture, Food, Entertainment & Beauty"
+  description="Hey Driver is a small network of English-language guides about Korea: culture and travel, home cooking, entertainment, and skincare — written and human-reviewed."
 >
-  <h1>Korea, Explained</h1>
-  <p>Practical guides and cultural notes about Korea, written for readers outside Korea.</p>
+  <h1>Hey Driver</h1>
+  <p>
+    Hey Driver is a small network of guides about Korea, written for English-speaking readers
+    who want more than a tourist-brochure summary. It started as a single travel blog and has
+    grown into four focused sections, each covering one part of everyday life in and around
+    Korea in real depth: getting around and understanding the culture, cooking the food at home,
+    following the entertainment stories that make international headlines, and making sense of
+    the skincare routines and ingredients everyone keeps recommending.
+  </p>
+  <p>
+    Every post starts as an AI-assisted draft and is then reviewed, fact-checked, and edited by
+    a human — Chris Kim — before it's published. The goal isn't to summarize what's already
+    online, but to add original, practical detail that's actually useful. You can read more on
+    the <a href="/about">about page</a>.
+  </p>
 
-  <ul class="post-list">
-    {posts.map((post) => (
-      <li>
-        {post.data.heroImage && (
-          <a href={`/blog/${post.slug}/`} class="thumb">
-            <img src={post.data.heroImage} alt={post.data.heroImageAlt || post.data.title} loading="lazy" />
-          </a>
+  <div class="sections">
+    {sections.map((section) => (
+      <section class="section-card">
+        <h2><a href={section.href}>{section.title}</a></h2>
+        <p class="blurb">{section.blurb}</p>
+        {section.posts.length > 0 ? (
+          <ul class="mini-list">
+            {section.posts.map((post) => (
+              <li><a href={`${section.href}${post.slug}/`}>{post.data.title}</a></li>
+            ))}
+          </ul>
+        ) : (
+          <p class="empty"><em>New section — first posts coming soon.</em></p>
         )}
-        <div>
-          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-          <p class="excerpt">{post.data.description}</p>
-          <p class="date">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-        </div>
-      </li>
+        <a class="more" href={section.href}>See all →</a>
+      </section>
     ))}
-  </ul>
-
-  {posts.length === 0 && <p><em>No posts yet — this is a fresh install. Add your first post to <code>src/content/blog/</code>.</em></p>}
+  </div>
 </Base>
 
 <style>
-  .post-list { list-style: none; padding: 0; }
-  .post-list li { margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
-  .post-list .thumb { flex-shrink: 0; width: 140px; }
-  .post-list .thumb img { width: 140px; height: 100px; object-fit: cover; border-radius: 6px; display: block; }
-  .post-list a { font-size: 1.2rem; font-weight: 600; text-decoration: none; }
-  .excerpt { color: #444; margin: 0.4rem 0; }
-  .date { color: #999; font-size: 0.8rem; margin: 0; }
+  .sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+  .section-card h2 { margin: 0 0 0.4rem; font-size: 1.2rem; }
+  .section-card h2 a { text-decoration: none; }
+  .blurb { color: #444; margin: 0 0 0.75rem; font-size: 0.95rem; }
+  .mini-list { list-style: none; padding: 0; margin: 0 0 0.75rem; }
+  .mini-list li { margin: 0.35rem 0; }
+  .mini-list a { text-decoration: none; font-size: 0.92rem; }
+  .empty { color: #999; font-size: 0.9rem; }
+  .more { font-size: 0.85rem; font-weight: 600; text-decoration: none; }
 </style>

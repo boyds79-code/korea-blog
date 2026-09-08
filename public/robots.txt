@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://korea.hey-driver.com/sitemap-index.xml
+Sitemap: https://hey-driver.com/sitemap-index.xml

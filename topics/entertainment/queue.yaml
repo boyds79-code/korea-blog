@@ -1,0 +1,49 @@
+# 직접 정한 주제 대기열입니다. 여기 넣어둔 게 있으면 트렌드 탐색보다 먼저 씁니다.
+# 매일 자동 실행(daily-post.yml)이 돌 때마다 맨 위 항목을 하나 꺼내서
+# 초안을 생성하고, 사용된 항목은 이 파일에서 자동으로 제거됩니다.
+#
+# 이 큐가 비면 자동으로 "오늘의 실제 한국 연예 뉴스" 트렌드 탐색 모드로 전환됩니다 —
+# 여기에 넣는 주제도 최근(대략 한 달 이내) 것 위주로 유지해주세요. 오래된 이슈는
+# 신선도가 떨어지니 넣지 않는 걸 권장합니다.
+#
+# 2026-09-04: 이미 발행된 글과 겹치는 아래 5개 항목을 정리했습니다 (오래된 queue.yaml
+# 버전이 병합되며 되살아났던 것으로 보입니다) — Squid Game Season 3 finale, La Scala
+# conductor, Parasite Oscar sweep, Squid Game Netflix record, Gangnam Style.
+- topic: Blackpink's historic Coachella headline set explained
+  notes: >-
+    2023 — first K-pop act to headline Coachella. Focus on the cultural milestone, not personal
+    details about members.
+- topic: BTS's UN speeches and why they mattered to their global fanbase
+  notes: >-
+    Reference only their actual public UN appearances (2018, 2021) — no invented quotes, only
+    well-documented public statements.
+- topic: How BTS's military enlistment became international news
+  notes: >-
+    Focus on South Korea's mandatory service system and why the global reaction was so large —
+    factual, not speculative about individuals' feelings.
+- topic: Why Crash Landing on You became a global Netflix phenomenon
+  notes: Focus on the show's reception and what made it resonate internationally.
+- topic: How Extraordinary Attorney Woo became an unexpected global hit
+  notes: 2022 Netflix global top 10 phenomenon and its cultural impact/reception abroad.
+- topic: 'Why Physical: 100 became a global Netflix hit reality show'
+  notes: 2023 — one of Netflix's most-watched non-English reality shows globally.
+- topic: The story behind Train to Busan's global horror-genre acclaim
+  notes: 2016 Cannes Midnight Screening + international box office/critical reception.
+- topic: How the term 'Hallyu' (Korean Wave) explains K-pop and K-drama's global rise
+  notes: >-
+    General explainer of the term/phenomenon and its history — good broad evergreen-ish
+    entertainment explainer.
+- topic: Why K-pop fandoms (like BTS's ARMY) became a global cultural and even political force
+  notes: >-
+    Focus on documented fandom organizing (chart campaigns, charity donations) — avoid speculation
+    about individual fans/celebrities.
+- topic: How Oldboy's Cannes win put Korean cinema on the international map
+  notes: 2004 Grand Prix at Cannes — early milestone before the Parasite/Squid Game wave.
+- topic: Why Korean survival and reality shows became a global streaming trend
+  notes: >-
+    Broader trend piece — Physical:100, Culinary Class Wars, etc. Stick to show/format facts, not
+    cast personal lives.
+- topic: How K-pop's global touring boom changed the concert industry
+  notes: >-
+    Focus on stadium tour scale, ticket demand, economic impact — industry-level story, not personal
+    details.

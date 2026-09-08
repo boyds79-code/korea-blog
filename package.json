@@ -1,5 +1,5 @@
 {
-  "name": "korea-blog",
+  "name": "hey-driver",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -7,8 +7,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "generate": "node scripts/generate-post.mjs",
-    "photos": "node scripts/add-photos.mjs"
+    "generate:korea": "node scripts/korea/generate-post.mjs",
+    "generate:recipes": "node scripts/recipes/generate-post.mjs",
+    "generate:entertainment": "node scripts/entertainment/generate-post.mjs",
+    "generate:beauty": "node scripts/beauty/generate-post.mjs",
+    "photos:korea": "node scripts/korea/add-photos.mjs",
+    "photos:recipes": "node scripts/recipes/add-photos.mjs",
+    "photos:entertainment": "node scripts/entertainment/add-photos.mjs",
+    "photos:beauty": "node scripts/beauty/add-photos.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.9",

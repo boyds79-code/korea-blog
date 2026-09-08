@@ -1,0 +1,70 @@
+name: Daily draft post (K-Entertainment)
+
+on:
+  schedule:
+    # 매일 UTC 30 0 * * * 실행. 카테고리별로 15분씩 시간을 나눠서 API 호출이 한 번에 몰리지 않게 했습니다.
+    - cron: '30 0 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: daily-post-entertainment
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate draft post (+ AI images if GEMINI_API_KEY is set)
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: npm run generate:entertainment
+
+      - name: Open pull request for human review
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          commit-message: "New draft (K-Entertainment): ${{ env.POST_TITLE }}"
+          branch: "draft/entertainment-${{ env.POST_SLUG }}"
+          delete-branch: true
+          title: "📝 Draft (K-Entertainment): ${{ env.POST_TITLE }}"
+          labels: draft-post,entertainment
+          body: |
+            Auto-generated draft (K-Entertainment), ready for human review.
+
+            - **Topic source:** `${{ env.TOPIC_SOURCE }}`
+            - **File:** `src/content/entertainment/${{ env.POST_SLUG }}.md`
+
+            **Before merging:**
+            1. Read the full draft for factual accuracy — the model can be wrong about specifics.
+            2. Make sure it adds real value beyond a generic summary (tighten anything generic/filler).
+            3. Check the title/description read naturally and aren't keyword-stuffed.
+            4. **Check the images.** If `GEMINI_API_KEY` is configured, images are already
+               auto-generated and committed to this branch — just look them over in the "Files
+               changed" tab. If any are missing, add them to `public/images/entertainment/<slug>/` on
+               this branch.
+            5. Merge this PR to publish (Vercel will auto-deploy on merge to `main`).
+
+            If this post shouldn't be published, just close this PR without merging —
+            nothing goes live until it's merged.
