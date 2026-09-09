@@ -9,26 +9,6 @@
 #   tier: "popular" | "chef-simple"
 #   notes: "이 레시피에서 꼭 다뤘으면 하는 포인트 (선택)"
 #   referenceStyle: "톤/스타일 참고용 채널·블로그 (선택, 내용을 베끼라는 뜻이 아니라 톤 참고용)"
-- dish: Eomuk Guk / Odeng (Korean Fish Cake Soup)
-  tier: popular
-  notes: 길거리 분식 느낌, 국물 육수 간단하게 내는 법
-  referenceStyle: Future Neighbor 톤 참고
-- dish: Doenjang Jjigae (Soybean Paste Stew)
-  tier: popular
-  notes: 된장 브랜드별 짠맛 차이 언급, 애호박/두부 조합
-  referenceStyle: Korean Bapsang 톤 참고
-- dish: Samgyetang (Ginseng Chicken Soup)
-  tier: popular
-  notes: 찹쌀/인삼 구하기 어려울 때 대체재 제안
-  referenceStyle: Maangchi 톤 참고
-- dish: Rabokki (Ramen + Tteokbokki)
-  tier: popular
-  notes: 분식집 인기 조합, 치즈 추가 변형
-  referenceStyle: Seonkyoung Longest 톤 참고
-- dish: Three Easy Banchan for Beginners (Kongnamul, Sigeumchi, Eggs)
-  tier: popular
-  notes: 반찬 개념 설명, 한 번에 3가지 만들어서 밥상 차리는 법
-  referenceStyle: Korean Bapsang, My Korean Kitchen 톤 참고
 - dish: Tuna Mayo Rice Bowl (Chamchi Mayo Deopbap)
   tier: chef-simple
   notes: 한국 자취생들이 5분 안에 만드는 대표 메뉴로 소개
