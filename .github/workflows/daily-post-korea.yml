@@ -3,7 +3,7 @@ name: Daily draft post (Korea, Explained)
 on:
   schedule:
     # 매일 UTC 0 0 * * * 실행. 카테고리별로 15분씩 시간을 나눠서 API 호출이 한 번에 몰리지 않게 했습니다.
-    - cron: '0 0 * * *'
+    - cron: '7 0 * * *'
   workflow_dispatch: {}
 
 permissions:
