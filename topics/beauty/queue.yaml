@@ -2,50 +2,42 @@
 # 매일 자동 실행(daily-post.yml)이 돌 때마다 맨 위 항목을 하나 꺼내서
 # 초안을 생성하고, 사용된 항목은 이 파일에서 자동으로 제거됩니다.
 #
-# 이 큐가 비면(예: 아래 항목을 다 쓰면) 자동으로 트렌드 기반 주제 탐색 모드로 전환됩니다.
-# (scripts/lib/topic-sources.mjs 의 findTrendTopic 참고)
-#
-# 형식:
-# - topic: "글 제목/주제 (영문 권장, 검색될 만한 표현으로)"
-#   notes: "이 주제에 대해 꼭 다뤘으면 하는 포인트 (선택, 없으면 지워도 됨)"
-
-- topic: "The Korean skincare routine order explained: what goes on your face and when"
-  notes: "이미 샘플 글로 작성해둠 (src/content/blog/korean-skincare-routine-order-explained.md) - 참고용으로 남겨둠, 실제 큐 소비 시 스킵하거나 다른 주제로 교체 가능"
-- topic: "What double cleansing actually does and who needs it"
-  notes: ""
-- topic: "Understanding Korean skincare ingredient labels: what to look for as a beginner"
-  notes: ""
-- topic: "Centella asiatica (cica) in skincare: what it does and who it's for"
-  notes: ""
-- topic: "Snail mucin in skincare: what the science actually says"
-  notes: ""
-- topic: "Niacinamide vs vitamin C: how to choose (and whether you can use both)"
-  notes: ""
-- topic: "What a 'glass skin' routine really involves, beyond the buzzword"
-  notes: ""
-- topic: "Sheet masks 101: how often to use them and what they can (and can't) do"
-  notes: ""
-- topic: "Chemical vs physical sunscreen: how Korean sunscreens differ from Western ones"
-  notes: ""
-- topic: "Essence vs serum vs ampoule: what's actually the difference"
-  notes: ""
-- topic: "How to build a minimal Korean skincare routine if you don't want 10 steps"
-  notes: ""
-- topic: "Low-pH cleansers explained: why Korean skincare cares so much about pH"
-  notes: ""
-- topic: "Retinol and Korean skincare: how to introduce it without irritation"
-  notes: ""
-- topic: "What 'skin barrier' actually means and how to tell if yours is damaged"
-  notes: ""
-- topic: "Exfoliation in Korean skincare: AHA vs BHA vs PHA explained simply"
-  notes: ""
-- topic: "Sleeping packs and overnight masks: do they actually do anything extra"
-  notes: ""
-- topic: "How Korean skincare approaches sensitive and acne-prone skin differently"
-  notes: ""
-- topic: "Toner in Korean skincare: what it's for (it's not what Western toner does)"
-  notes: ""
-- topic: "Layering skincare products in the right order without pilling"
-  notes: ""
-- topic: "Seasonal skincare: how a Korean routine changes between summer and winter"
-  notes: ""
+# 이 큐가 비면 자동으로 트렌드 기반 주제 탐색 모드로 전환됩니다.
+- topic: What double cleansing actually does and who needs it
+  notes: ''
+- topic: 'Understanding Korean skincare ingredient labels: what to look for as a beginner'
+  notes: ''
+- topic: 'Centella asiatica (cica) in skincare: what it does and who it''s for'
+  notes: ''
+- topic: 'Snail mucin in skincare: what the science actually says'
+  notes: ''
+- topic: 'Niacinamide vs vitamin C: how to choose (and whether you can use both)'
+  notes: ''
+- topic: What a 'glass skin' routine really involves, beyond the buzzword
+  notes: ''
+- topic: 'Sheet masks 101: how often to use them and what they can (and can''t) do'
+  notes: ''
+- topic: 'Chemical vs physical sunscreen: how Korean sunscreens differ from Western ones'
+  notes: ''
+- topic: 'Essence vs serum vs ampoule: what''s actually the difference'
+  notes: ''
+- topic: How to build a minimal Korean skincare routine if you don't want 10 steps
+  notes: ''
+- topic: 'Low-pH cleansers explained: why Korean skincare cares so much about pH'
+  notes: ''
+- topic: 'Retinol and Korean skincare: how to introduce it without irritation'
+  notes: ''
+- topic: What 'skin barrier' actually means and how to tell if yours is damaged
+  notes: ''
+- topic: 'Exfoliation in Korean skincare: AHA vs BHA vs PHA explained simply'
+  notes: ''
+- topic: 'Sleeping packs and overnight masks: do they actually do anything extra'
+  notes: ''
+- topic: How Korean skincare approaches sensitive and acne-prone skin differently
+  notes: ''
+- topic: 'Toner in Korean skincare: what it''s for (it''s not what Western toner does)'
+  notes: ''
+- topic: Layering skincare products in the right order without pilling
+  notes: ''
+- topic: 'Seasonal skincare: how a Korean routine changes between summer and winter'
+  notes: ''
