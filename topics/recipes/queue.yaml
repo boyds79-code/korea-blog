@@ -9,10 +9,6 @@
 #   tier: "popular" | "chef-simple"
 #   notes: "이 레시피에서 꼭 다뤘으면 하는 포인트 (선택)"
 #   referenceStyle: "톤/스타일 참고용 채널·블로그 (선택, 내용을 베끼라는 뜻이 아니라 톤 참고용)"
-- dish: Soy Sauce Marinated Eggs (Mayak Gyeran)
-  tier: chef-simple
-  notes: 밥도둑 반찬으로 소개, 절이는 최소 시간 명시
-  referenceStyle: 자취요리 스타일 - 냉장고에 두고 먹는 밑반찬
 - dish: Gyeranjjim (Quick Steamed Egg)
   tier: chef-simple
   notes: 전자레인지 버전과 냄비 버전 둘 다 소개
