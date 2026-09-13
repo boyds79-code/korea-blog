@@ -87,6 +87,35 @@ git push -u origin main
   PR 리뷰를 강제하는 이유가 이것입니다 — 리뷰를 형식적으로 통과시키지 말고, 실제로 읽고
   고쳐서 머지하는 습관을 들이는 걸 추천합니다.
 
+## 댓글 기능 (Cusdis)
+
+모든 페이지(홈, about/contact/privacy, 4개 섹션 목록, 모든 글) 하단에 댓글 위젯이 붙어
+있습니다. 공용 레이아웃인 `src/layouts/Base.astro`에 `src/components/Comments.astro`를
+한 번만 넣어뒀기 때문에 — 새 글을 아무리 추가해도 따로 손댈 필요 없이 자동으로 댓글창이
+붙습니다. [Cusdis](https://cusdis.com/)를 씁니다: 완전 무료, 오픈소스, 방문자가 로그인/가입
+없이 이름만 입력하면 댓글을 남길 수 있어서 일반 독자에게 진입장벽이 없습니다(Disqus처럼
+계정 로그인을 유도하지도, Giscus처럼 GitHub 계정을 요구하지도 않습니다).
+
+**설정 방법**
+1. https://cusdis.com/ 에서 무료 계정을 만드세요.
+2. 대시보드에서 **Create Project**를 누르고, Website Name은 아무 이름이나(예: "Korea
+   Explained"), Website URL은 `https://hey-driver.com`으로 등록하세요.
+3. 프로젝트를 만들면 발급되는 **App ID**를 복사하세요.
+4. Vercel 프로젝트 환경변수에 `PUBLIC_CUSDIS_APP_ID`를 추가하고 App ID 값을 넣은 뒤
+   재배포하세요. 로컬에서 미리 보고 싶다면 `.env`에도 같은 값을 넣으면 됩니다.
+5. 설정 전까지는(`PUBLIC_CUSDIS_APP_ID`가 비어있으면) 댓글 자리에 자리표시자만 보입니다 —
+   `AdSlot.astro`와 동일한 패턴입니다(`src/components/Comments.astro` 참고).
+
+**스팸/모더레이션**
+Cusdis 프로젝트 설정의 기본값은 "댓글이 올라오면 바로 보이지 않고 승인 대기 상태로 먼저
+쌓이는" 방식입니다 — Cusdis 대시보드에서 스팸을 걸러내고 승인해야 실제 페이지에 노출됩니다.
+자유롭게 바로바로 노출되길 원한다면 Cusdis 프로젝트 설정에서 이 승인 옵션을 끄면 됩니다.
+
+**특정 페이지에서 빼고 싶다면**
+지금은 정말 "모든 페이지"에 붙도록 `Base.astro`에 공통으로 넣어뒀습니다. 만약 `/privacy`
+같은 특정 페이지에서는 빼고 싶다면, `Base.astro`가 받는 `canonicalPath`(또는 새 prop)를
+기준으로 조건을 걸어 `<Comments />` 렌더링을 건너뛰게 하면 됩니다.
+
 ## 이미지는 AI로 생성합니다
 
 ### GEMINI_API_KEY를 등록한 경우 (완전 자동)

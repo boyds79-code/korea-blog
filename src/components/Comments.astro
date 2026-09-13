@@ -1,0 +1,63 @@
+---
+// 모든 페이지 하단에 들어가는 댓글 위젯 (Cusdis: https://cusdis.com/).
+// AdSlot.astro와 같은 패턴: PUBLIC_CUSDIS_APP_ID를 설정하기 전까지는 자리표시자만 보여주고,
+// 설정하고 나면 실제 댓글 위젯이 활성화됩니다. 방문자는 로그인/가입 없이 이름만 입력하면
+// 댓글을 남길 수 있고, Cusdis 프로젝트의 기본 설정("Require comment approval")이 켜져 있으면
+// 남긴 댓글은 승인 대기 상태로 들어가서 Cusdis 대시보드에서 스팸을 거른 뒤 승인해야 실제로
+// 노출됩니다(원하면 그 설정을 꺼서 즉시 노출로 바꿀 수 있습니다).
+interface Props {
+  pageId: string;
+  pageUrl: string;
+  pageTitle: string;
+}
+const { pageId, pageUrl, pageTitle } = Astro.props;
+
+const appId = import.meta.env.PUBLIC_CUSDIS_APP_ID;
+// 기본은 Cusdis가 무료로 운영하는 호스팅형 서버. 나중에 직접 self-host하게 되면
+// PUBLIC_CUSDIS_HOST만 그 주소로 바꿔주면 됩니다.
+const host = import.meta.env.PUBLIC_CUSDIS_HOST || 'https://cusdis.com';
+const isConfigured = Boolean(appId);
+---
+
+<section class="comments" aria-labelledby="comments-heading">
+  <h2 id="comments-heading">Comments</h2>
+  {isConfigured ? (
+    <Fragment>
+      <div
+        id="cusdis_thread"
+        data-host={host}
+        data-app-id={appId}
+        data-page-id={pageId}
+        data-page-url={pageUrl}
+        data-page-title={pageTitle}
+        data-theme="auto"
+      ></div>
+      <script defer src={`${host}/js/cusdis.es.js`}></script>
+    </Fragment>
+  ) : (
+    <div class="comments-placeholder">
+      <span>Comments will appear here once PUBLIC_CUSDIS_APP_ID is set — see README.</span>
+    </div>
+  )}
+</section>
+
+<style>
+  .comments {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+  .comments h2 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+  }
+  .comments-placeholder {
+    border: 1px dashed #ccc;
+    color: #999;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    background: #fafafa;
+    padding: 1.5rem;
+    text-align: center;
+  }
+</style>

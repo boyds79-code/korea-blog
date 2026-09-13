@@ -1,4 +1,6 @@
 ---
+import Comments from '../components/Comments.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -42,6 +44,7 @@ const canonicalURL = new URL(canonicalPath, siteUrl);
     </header>
     <main>
       <slot />
+      <Comments pageId={canonicalPath} pageUrl={canonicalURL.toString()} pageTitle={title} />
     </main>
     <footer class="site-footer">
       <p class="footer-links">
