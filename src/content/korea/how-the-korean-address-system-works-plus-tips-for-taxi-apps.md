@@ -4,7 +4,7 @@ description: "Confused by Korean addresses? Learn how the road-name system works
 pubDate: 2026-08-22
 tags: ["korea", "travel tips", "transportation", "seoul"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-the-korean-address-system-works-plus-tips-for-taxi-apps/1.jpg"
 heroImageAlt: "Korean street sign showing bilingual road name and building number"
 ---

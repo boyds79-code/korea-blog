@@ -4,7 +4,7 @@ description: "Learn to make authentic samgyetang at home — a nourishing Korean
 pubDate: 2026-09-06
 tags: ["soup", "ginseng", "chicken", "traditional"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "20 minutes"
 cookTime: "1 hour 15 minutes"
 servings: "2 servings"

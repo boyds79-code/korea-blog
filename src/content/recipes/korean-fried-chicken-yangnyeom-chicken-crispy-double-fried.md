@@ -4,7 +4,7 @@ description: "Crispy Korean fried chicken glazed with a sweet, spicy, garlicky s
 pubDate: 2026-08-15
 tags: ["fried-chicken", "spicy", "double-fried", "party-food"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "20 minutes"
 cookTime: "35 minutes"
 servings: "3-4 servings"

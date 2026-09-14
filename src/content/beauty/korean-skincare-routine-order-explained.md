@@ -4,7 +4,7 @@ description: "A clear, no-fluff breakdown of the Korean skincare routine order â
 pubDate: 2026-09-03
 tags: ["skincare", "routine", "beginners"]
 topicSource: "manual"
-draft: false
+draft: true
 ---
 
 The idea of a "10-step Korean skincare routine" scares a lot of people off before they even try it. Here's the good news: the number of steps is flexible, but the **order** is not â€” and once you understand why each step goes where it does, the whole thing stops feeling like a mystery and starts feeling like common sense.

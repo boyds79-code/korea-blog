@@ -4,7 +4,7 @@ description: "Learn how to make perfect gimbap at home with fluffy seasoned rice
 pubDate: 2026-08-23
 tags: ["gimbap", "rice-rolls", "lunch", "portable"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "30 minutes"
 cookTime: "20 minutes"
 servings: "3-4 servings (3-4 rolls)"

@@ -4,7 +4,7 @@ description: "Psy's Gangnam Style became the first YouTube video to hit 1 billio
 pubDate: 2026-09-02
 tags: ["kpop", "youtube", "viral", "psy"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-gangnam-style-broke-youtubes-view-counter-in-2012-2/1.jpg"
 heroImageAlt: "Colorful K-pop stage with dramatic spotlights and cheering crowd silhouettes"
 ---

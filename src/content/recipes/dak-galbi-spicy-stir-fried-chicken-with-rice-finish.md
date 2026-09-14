@@ -4,7 +4,7 @@ description: "Learn to make authentic dak galbi at home with tender chicken, che
 pubDate: 2026-08-27
 tags: ["stir-fry", "spicy", "chicken", "one-pan"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "20 minutes"
 cookTime: "25 minutes"
 servings: "2-3 servings"

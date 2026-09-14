@@ -4,7 +4,7 @@ description: "A simple, deeply flavorful kimchi jjigae recipe you can make at ho
 pubDate: 2026-08-15
 tags: ["stew", "jjigae", "beginner-friendly", "pork"]
 tier: "manual"
-draft: false
+draft: true
 heroImage: "/images/recipes/easy-kimchi-jjigae-recipe/finished.jpg"
 heroImageAlt: "A close-up of kimchi jjigae (Korean kimchi stew) in a pot, garnished with green onion"
 

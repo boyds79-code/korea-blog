@@ -4,7 +4,7 @@ description: "Snail mucin has become a K-beauty staple, but what does the resear
 pubDate: 2026-09-07
 tags: ["snail-mucin", "k-beauty", "skincare-ingredients", "science"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/snail-mucin-in-skincare-what-the-science-actually-says/1.jpg"
 heroImageAlt: "Close-up of clear gel serum texture with delicate bubbles on clean white surface"
 ---

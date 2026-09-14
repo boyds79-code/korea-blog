@@ -4,7 +4,7 @@ description: "How a Korean survival drama shattered Netflix records, racked up h
 pubDate: 2026-09-02
 tags: ["squid game", "netflix", "kdrama", "emmys"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/why-squid-game-became-netflixs-biggest-show-ever-2/1.jpg"
 heroImageAlt: "Stylized game arena with dramatic lighting and tension"
 ---

@@ -4,7 +4,7 @@ description: "Everything you need to know about sheet masks—how often to use t
 pubDate: 2026-09-11
 tags: ["sheet-masks", "k-beauty", "skincare-basics", "hydration"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/sheet-masks-101-how-often-to-use-them-and-what-they-really-do/1.jpg"
 heroImageAlt: "Sheet mask package and folded white sheet mask on clean surface"
 ---

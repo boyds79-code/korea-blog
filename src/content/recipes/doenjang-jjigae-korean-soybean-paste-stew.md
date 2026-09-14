@@ -4,7 +4,7 @@ description: "Rich, savory Korean soybean paste stew with soft tofu and zucchini
 pubDate: 2026-09-05
 tags: ["stew", "doenjang", "vegetarian-adaptable", "comfort-food"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "10 minutes"
 cookTime: "20 minutes"
 servings: "2-3 servings"

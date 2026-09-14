@@ -4,7 +4,7 @@ description: "Learn to make authentic bibimbap at home with five vegetable banch
 pubDate: 2026-08-17
 tags: ["rice-bowl", "bibimbap", "vegetable-banchan", "gochujang"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "25 minutes"
 cookTime: "35 minutes"
 servings: "2 servings"

@@ -4,7 +4,7 @@ description: "Confused by Korean honorifics like -ssi, oppa, unnie, or sunbae? T
 pubDate: 2026-08-29
 tags: ["korean", "language", "culture", "honorifics"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/common-korean-honorifics-explained-simply-what-ssi-oppa-and-more-mean/1.jpg"
 heroImageAlt: "Group of Korean friends greeting each other warmly"
 ---

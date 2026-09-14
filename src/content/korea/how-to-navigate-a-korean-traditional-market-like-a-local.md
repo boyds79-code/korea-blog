@@ -4,7 +4,7 @@ description: "Master Korean traditional markets like Gwangjang with this practic
 pubDate: 2026-09-04
 tags: ["seoul", "food", "markets", "travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-to-navigate-a-korean-traditional-market-like-a-local/1.jpg"
 heroImageAlt: "Busy Korean traditional market with colorful food stalls and vendors"
 ---

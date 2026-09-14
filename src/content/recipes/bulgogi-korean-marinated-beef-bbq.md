@@ -4,7 +4,7 @@ description: "Tender, sweet-savory bulgogi made at home with a classic marinade 
 pubDate: 2026-08-19
 tags: ["bulgogi", "beef", "marinade", "korean bbq", "easy"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "15 minutes"
 cookTime: "10 minutes"
 servings: "4 servings"

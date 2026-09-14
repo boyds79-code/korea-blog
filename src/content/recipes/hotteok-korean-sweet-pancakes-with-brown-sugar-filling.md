@@ -4,7 +4,7 @@ description: "Crispy-edged, chewy hotteok filled with cinnamon-spiced brown suga
 pubDate: 2026-09-01
 tags: ["hotteok", "street-food", "dessert", "pancakes"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "20 minutes (plus 1 hour rising time)"
 cookTime: "15 minutes"
 servings: "6-8 pancakes"

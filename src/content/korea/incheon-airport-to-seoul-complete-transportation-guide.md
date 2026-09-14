@@ -4,7 +4,7 @@ description: "Compare all ways to get from Incheon Airport to Seoul—AREX train
 pubDate: 2026-08-16
 tags: ["seoul", "travel", "transportation", "incheon airport"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/incheon-airport-to-seoul-complete-transportation-guide/1.jpg"
 heroImageAlt: "AREX train at Incheon Airport station platform"
 ---

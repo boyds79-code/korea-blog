@@ -4,7 +4,7 @@ description: "Learn to make Korean grilled pork belly at home using just a skill
 pubDate: 2026-08-21
 tags: ["pork", "grilling", "ssam", "easy"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "15 minutes"
 cookTime: "12 minutes"
 servings: "2-3 servings"

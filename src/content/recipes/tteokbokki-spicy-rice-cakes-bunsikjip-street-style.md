@@ -4,7 +4,7 @@ description: "Learn to make authentic spicy tteokbokki at home with chewy rice c
 pubDate: 2026-08-18
 tags: ["tteokbokki", "street-food", "spicy", "rice-cakes"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "10 minutes"
 cookTime: "15 minutes"
 servings: "2-3 servings"

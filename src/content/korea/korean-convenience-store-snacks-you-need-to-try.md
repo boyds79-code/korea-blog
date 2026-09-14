@@ -4,7 +4,7 @@ description: "Discover the best Korean convenience store snacks at CU, GS25, and
 pubDate: 2026-08-19
 tags: ["korea", "snacks", "convenience store", "food"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/korean-convenience-store-snacks-you-need-to-try/1.jpg"
 heroImageAlt: "Colorful shelves packed with Korean snacks at a convenience store"
 ---

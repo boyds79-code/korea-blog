@@ -4,7 +4,7 @@ description: "Parasite made history at the 2020 Oscars, becoming the first non-E
 pubDate: 2026-09-01
 tags: ["parasite", "oscars", "korean film", "bong joon-ho", "awards"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-parasites-2020-oscar-sweep-changed-hollywoods-foreign-film-view/1.jpg"
 heroImageAlt: "Oscar statuettes on a stage with dramatic lighting"
 ---

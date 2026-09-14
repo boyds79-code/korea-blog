@@ -4,7 +4,7 @@ description: "Why BTS's mandatory South Korean military service made headlines w
 pubDate: 2026-09-07
 tags: ["bts", "military service", "kpop", "south korea"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-btss-military-enlistment-became-international-news/1.jpg"
 heroImageAlt: "Military uniform and dog tags on a stage with dramatic lighting"
 ---

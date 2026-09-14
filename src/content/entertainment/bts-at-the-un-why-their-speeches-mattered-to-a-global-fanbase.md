@@ -4,7 +4,7 @@ description: "BTS made history as the first K-pop group to address the United Na
 pubDate: 2026-09-06
 tags: ["bts", "kpop", "united nations", "youth advocacy"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/bts-at-the-un-why-their-speeches-mattered-to-a-global-fanbase/1.jpg"
 heroImageAlt: "United Nations General Assembly hall with podium and delegate seating"
 ---

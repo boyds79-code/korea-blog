@@ -4,7 +4,7 @@ description: "Learn to make bubbling, spicy sundubu jjigae at home with seafood 
 pubDate: 2026-08-22
 tags: ["stew", "tofu", "spicy", "comfort-food"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "10 minutes"
 cookTime: "15 minutes"
 servings: "2 servings"

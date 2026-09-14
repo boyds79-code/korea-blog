@@ -4,7 +4,7 @@ description: "Wondering if you should tip in Korea? The short answer is no. Lear
 pubDate: 2026-08-27
 tags: ["korea", "travel", "culture", "etiquette"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-tipping-works-in-korea-spoiler-it-doesnt/1.jpg"
 heroImageAlt: "Korean restaurant interior with table setting"
 ---

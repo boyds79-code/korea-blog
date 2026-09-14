@@ -4,7 +4,7 @@ description: "Master the crispy Korean pancake with the right batter ratio and t
 pubDate: 2026-09-02
 tags: ["pancake", "scallion", "kimchi", "appetizer"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "10 minutes"
 cookTime: "15 minutes"
 servings: "2-3 servings"

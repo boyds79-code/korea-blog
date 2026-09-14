@@ -4,7 +4,7 @@ description: "Learn to make authentic kimchi fried rice using older, sour kimchi
 pubDate: 2026-08-24
 tags: ["fried rice", "weeknight dinner", "leftovers", "beginner-friendly"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "10 minutes"
 cookTime: "12 minutes"
 servings: "2 servings"

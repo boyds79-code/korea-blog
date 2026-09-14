@@ -4,7 +4,7 @@ description: "Learn the essential Korean honorifics you'll hear every day—oppa
 pubDate: 2026-08-30
 tags: ["korean language", "korean culture", "honorifics", "travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/common-korean-honorifics-explained-simply-for-beginners/1.jpg"
 heroImageAlt: "Korean friends greeting each other respectfully in a casual setting"
 ---

@@ -4,7 +4,7 @@ description: "Torn between Seoul and Busan for your first trip to Korea? Compare
 pubDate: 2026-09-03
 tags: ["seoul", "busan", "travel", "korea"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/seoul-vs-busan-which-city-should-you-visit-first/1.jpg"
 heroImageAlt: "Seoul cityscape with modern skyscrapers and mountains in background"
 ---

@@ -4,7 +4,7 @@ description: "Choosing where to stay in Seoul? Compare Myeongdong, Hongdae, Gang
 pubDate: 2026-08-26
 tags: ["seoul", "travel", "accommodation", "korea"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/best-neighborhoods-to-stay-in-seoul-for-first-time-visitors/1.jpg"
 heroImageAlt: "Busy street in Myeongdong Seoul with shops and pedestrians"
 ---

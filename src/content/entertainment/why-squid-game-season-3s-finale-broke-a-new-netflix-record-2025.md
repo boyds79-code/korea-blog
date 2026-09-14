@@ -4,7 +4,7 @@ description: "Squid Game Season 3 made history on June 27, 2025, as the first Ne
 pubDate: 2026-08-29
 tags: ["squid game", "netflix", "korean drama", "streaming"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/why-squid-game-season-3s-finale-broke-a-new-netflix-record-2025/1.jpg"
 heroImageAlt: "Netflix streaming interface with global map overlay"
 ---

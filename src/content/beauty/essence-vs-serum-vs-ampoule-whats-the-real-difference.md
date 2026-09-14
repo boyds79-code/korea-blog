@@ -4,7 +4,7 @@ description: "Confused by essence, serum, and ampoule? Learn what actually sets 
 pubDate: 2026-09-13
 tags: ["essence", "serum", "ampoule", "k-beauty", "skincare-layering"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/essence-vs-serum-vs-ampoule-whats-the-real-difference/1.jpg"
 heroImageAlt: "Three minimalist skincare bottles in different sizes on a clean white surface"
 ---

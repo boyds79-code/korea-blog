@@ -4,7 +4,7 @@ description: "Discover the key differences between chemical and physical sunscre
 pubDate: 2026-09-12
 tags: ["sunscreen", "spf", "k-beauty", "skincare"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/chemical-vs-physical-sunscreen-how-k-beauty-formulas-differ/1.jpg"
 heroImageAlt: "Minimalist sunscreen bottles on clean white surface with soft natural light"
 ---

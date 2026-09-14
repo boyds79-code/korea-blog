@@ -4,7 +4,7 @@ description: "Discover how Yeon Sang-ho's 2016 Korean zombie thriller went from 
 pubDate: 2026-09-11
 tags: ["korean film", "horror", "train to busan", "cannes"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-train-to-busan-became-a-global-horror-phenomenon/1.jpg"
 heroImageAlt: "High-speed train speeding through dark tunnel with dramatic lighting"
 ---

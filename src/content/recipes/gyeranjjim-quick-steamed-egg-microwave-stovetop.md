@@ -4,7 +4,7 @@ description: "Fluffy Korean steamed eggs in 5 minutes! Learn both microwave and 
 pubDate: 2026-09-13
 tags: ["egg", "quick", "beginner-friendly", "side-dish", "microwave"]
 tier: "chef-simple"
-draft: false
+draft: true
 prepTime: "2 minutes"
 cookTime: "5 minutes"
 servings: "1-2 servings"

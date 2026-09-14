@@ -4,7 +4,7 @@ description: "From pouring drinks to using chopsticks, learn the Korean etiquett
 pubDate: 2026-08-20
 tags: ["korea", "etiquette", "culture", "travel tips"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/korean-etiquette-common-mistakes-foreigners-make-and-how-to-avoid-them/1.jpg"
 heroImageAlt: "Hands pouring soju into small glasses at a Korean dinner table"
 ---

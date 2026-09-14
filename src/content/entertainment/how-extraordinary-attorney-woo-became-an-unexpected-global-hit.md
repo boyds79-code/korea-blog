@@ -4,7 +4,7 @@ description: "The 2022 Korean legal drama about an autistic lawyer captured hear
 pubDate: 2026-09-09
 tags: ["kdrama", "netflix", "extraordinary attorney woo", "streaming"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-extraordinary-attorney-woo-became-an-unexpected-global-hit/1.jpg"
 heroImageAlt: "Courtroom scene with judge's gavel and legal documents"
 ---

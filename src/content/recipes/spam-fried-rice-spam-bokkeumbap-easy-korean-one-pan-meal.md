@@ -4,7 +4,7 @@ description: "Quick, satisfying Korean spam fried rice with no kimchi needed. A 
 pubDate: 2026-09-11
 tags: ["fried-rice", "beginner-friendly", "spam", "quick-meal", "one-pan"]
 tier: "chef-simple"
-draft: false
+draft: true
 prepTime: "5 minutes"
 cookTime: "10 minutes"
 servings: "2 servings"

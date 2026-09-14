@@ -4,7 +4,7 @@ description: "Discover how centella asiatica (cica) calms irritation, strengthen
 pubDate: 2026-09-06
 tags: ["centella-asiatica", "cica", "sensitive-skin", "k-beauty-ingredients", "soothing-skincare"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/centella-asiatica-in-skincare-what-it-does-and-who-its-for/1.jpg"
 heroImageAlt: "Centella asiatica leaves and botanical skincare products on a clean white surface"
 ---

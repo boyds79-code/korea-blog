@@ -4,7 +4,7 @@ description: "Heading to a Korean sauna for the first time? This complete jjimji
 pubDate: 2026-08-27
 tags: ["korea", "jjimjilbang", "culture", "travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/korean-jjimjilbang-etiquette-your-first-timers-guide-to-sauna-culture/1.jpg"
 heroImageAlt: "Interior of a Korean jjimjilbang common area with heated floor rooms"
 ---

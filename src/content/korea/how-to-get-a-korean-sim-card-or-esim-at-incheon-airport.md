@@ -4,7 +4,7 @@ description: "Step-by-step guide to buying a Korean SIM card or eSIM at the airp
 pubDate: 2026-08-28
 tags: ["korea", "travel", "sim card", "incheon airport"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-to-get-a-korean-sim-card-or-esim-at-incheon-airport/1.jpg"
 heroImageAlt: "Incheon Airport arrivals hall with travelers"
 ---

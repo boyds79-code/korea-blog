@@ -4,7 +4,7 @@ description: "Learn to make authentic japchae with perfectly chewy dangmyeon noo
 pubDate: 2026-08-20
 tags: ["japchae", "stir-fry", "noodles", "celebration"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "30 minutes"
 cookTime: "25 minutes"
 servings: "4 servings"

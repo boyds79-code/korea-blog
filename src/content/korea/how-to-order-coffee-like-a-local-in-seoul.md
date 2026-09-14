@@ -4,7 +4,7 @@ description: "Master the art of ordering coffee in Seoul's cafés with this insi
 pubDate: 2026-08-24
 tags: ["seoul", "coffee", "korea", "food", "travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-to-order-coffee-like-a-local-in-seoul/1.jpg"
 heroImageAlt: "Modern Seoul café interior with customers ordering at counter"
 ---

@@ -4,7 +4,7 @@ description: "Hallyu, or the Korean Wave, explains how K-pop, K-dramas, and Kore
 pubDate: 2026-09-12
 tags: ["hallyu", "kpop", "kdrama", "korean wave"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/what-is-hallyu-the-korean-wave-that-brought-k-pop-and-k-drama-worldwide/1.jpg"
 heroImageAlt: "Neon cityscape with Korean signage and cultural symbols"
 ---

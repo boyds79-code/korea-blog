@@ -4,7 +4,7 @@ description: "Everything you need to know about buying, loading, and using a T-m
 pubDate: 2026-08-18
 tags: ["korea", "travel", "transportation", "seoul"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-to-use-a-t-money-card-in-korea-complete-guide-for-visitors/1.jpg"
 heroImageAlt: "T-money card being tapped on a subway card reader in Seoul"
 ---

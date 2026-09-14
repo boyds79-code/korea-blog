@@ -4,7 +4,7 @@ description: "Your complete introduction to Korea's vibrant street food scene—
 pubDate: 2026-08-23
 tags: ["korean food", "street food", "food guide", "travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/a-beginners-guide-to-korean-street-food/1.jpg"
 heroImageAlt: "Bustling Korean street food stall with steam rising from various dishes"
 ---

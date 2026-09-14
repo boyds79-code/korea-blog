@@ -4,7 +4,7 @@ description: "Navigate Korea's unique drinking culture with confidence. Learn th
 pubDate: 2026-09-02
 tags: ["korea", "culture", "drinking", "etiquette", "social"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/understanding-korean-drinking-culture-and-etiquette/1.jpg"
 heroImageAlt: "Traditional Korean soju and beer bottles on a table with small dishes"
 ---

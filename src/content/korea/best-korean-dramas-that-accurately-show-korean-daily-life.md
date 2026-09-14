@@ -4,7 +4,7 @@ description: "Looking for K-dramas that show real Korea? These series skip the f
 pubDate: 2026-08-31
 tags: ["kdrama", "korean culture", "daily life", "tv shows"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/best-korean-dramas-that-accurately-show-korean-daily-life/1.jpg"
 heroImageAlt: "Korean neighborhood street with apartments and local shops"
 ---

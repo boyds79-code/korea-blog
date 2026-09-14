@@ -4,7 +4,7 @@ description: "Learn to make authentic jjajangmyeon at home, either from scratch 
 pubDate: 2026-08-30
 tags: ["noodles", "chunjang", "comfort-food", "takeout-style"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "20 minutes"
 cookTime: "25 minutes"
 servings: "2-3 servings"

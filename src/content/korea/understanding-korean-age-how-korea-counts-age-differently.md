@@ -4,7 +4,7 @@ description: "Learn how Korea's unique age counting system works, why you might 
 pubDate: 2026-08-25
 tags: ["korea", "culture", "guide", "korean age"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/understanding-korean-age-how-korea-counts-age-differently/1.jpg"
 heroImageAlt: "Korean birthday cake with candles celebration"
 ---

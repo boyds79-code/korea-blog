@@ -4,7 +4,7 @@ description: "Blackpink became the first K-pop act to headline Coachella in 2023
 pubDate: 2026-09-05
 tags: ["kpop", "blackpink", "coachella", "festivals"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/blackpinks-historic-2023-coachella-headline-set-explained/1.jpg"
 heroImageAlt: "Concert stage with dramatic spotlights and massive crowd at outdoor music festival"
 ---

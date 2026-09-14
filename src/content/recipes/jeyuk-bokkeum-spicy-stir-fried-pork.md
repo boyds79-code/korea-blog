@@ -4,7 +4,7 @@ description: "This fiery Korean pork stir-fry delivers tender, caramelized meat 
 pubDate: 2026-08-26
 tags: ["pork", "spicy", "stir-fry", "weeknight-dinner"]
 tier: "popular"
-draft: false
+draft: true
 prepTime: "15 minutes"
 cookTime: "12 minutes"
 servings: "3-4 servings"

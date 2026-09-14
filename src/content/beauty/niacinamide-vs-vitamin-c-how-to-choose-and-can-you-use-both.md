@@ -4,7 +4,7 @@ description: "Wondering whether to pick niacinamide or vitamin C for your K-beau
 pubDate: 2026-09-08
 tags: ["niacinamide", "vitamin-c", "k-beauty", "skincare-ingredients", "serums"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/beauty/niacinamide-vs-vitamin-c-how-to-choose-and-can-you-use-both/1.jpg"
 heroImageAlt: "Minimalist skincare serums and dropper bottles on clean surface"
 ---

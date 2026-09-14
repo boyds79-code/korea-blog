@@ -4,7 +4,7 @@ description: "Discover the best train day trips from Seoul, from coastal Busan t
 pubDate: 2026-08-21
 tags: ["seoul", "train travel", "day trips", "korea travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/best-day-trips-from-seoul-by-train-where-to-go-what-to-see/1.jpg"
 heroImageAlt: "KTX high-speed train at Seoul Station platform"
 ---

@@ -4,7 +4,7 @@ description: "Netflix's animated K-pop action film KPop Demon Hunters passed 500
 pubDate: 2026-08-28
 tags: ["kpop", "netflix", "animation", "streaming", "film"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/how-kpop-demon-hunters-became-netflixs-most-watched-film-of-all-time/1.jpg"
 heroImageAlt: "Animated K-pop concert stage with neon lights and demon-fighting action"
 ---

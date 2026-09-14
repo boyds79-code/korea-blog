@@ -4,7 +4,7 @@ description: "Navigate Seoul's metro like a local with these essential subway ap
 pubDate: 2026-08-17
 tags: ["seoul", "travel", "transportation", "apps"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/best-korean-subway-apps-for-foreign-tourists/1.jpg"
 heroImageAlt: "Seoul subway station platform with bilingual signage"
 ---

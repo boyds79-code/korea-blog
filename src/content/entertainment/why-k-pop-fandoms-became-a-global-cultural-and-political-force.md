@@ -4,7 +4,7 @@ description: "From chart-topping streaming campaigns to charity fundraisers and 
 pubDate: 2026-09-13
 tags: ["kpop", "fandom", "bts", "social media"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/why-k-pop-fandoms-became-a-global-cultural-and-political-force/1.jpg"
 heroImageAlt: "Glowing concert venue with coordinated light sticks and digital screens"
 ---

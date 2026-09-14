@@ -4,7 +4,7 @@ description: "How a North-South Korean romance became one of Netflix's biggest i
 pubDate: 2026-09-08
 tags: ["kdrama", "netflix", "crash landing on you", "streaming"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/entertainment/why-crash-landing-on-you-became-a-global-netflix-phenomenon/1.jpg"
 heroImageAlt: "Romantic K-drama scene with paraglider and dramatic landscape"
 ---

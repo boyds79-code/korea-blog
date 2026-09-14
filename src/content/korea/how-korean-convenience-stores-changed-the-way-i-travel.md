@@ -4,7 +4,7 @@ description: "Korean convenience stores revolutionized my approach to travel wit
 pubDate: 2026-09-01
 tags: ["travel", "korea", "convenience stores", "food", "budget travel"]
 topicSource: "manual"
-draft: false
+draft: true
 heroImage: "/images/korea/how-korean-convenience-stores-changed-the-way-i-travel/1.jpg"
 heroImageAlt: "Colorful Korean convenience store interior with bright shelves"
 ---
