@@ -32,7 +32,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check for existing unmerged draft PR
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          COUNT=$(gh pr list --repo "${{ github.repository }}" --label entertainment --state open --json number --jq 'length')
+          if [ "$COUNT" -gt 0 ]; then
+            echo "has_open=true" >> "$GITHUB_OUTPUT"
+            echo "이미 리뷰 대기 중인 draft PR이 ${COUNT}개 있어 오늘은 새로 생성하지 않고 건너뜁니다 (같은 큐 항목이 계속 중복 생성되는 것을 막기 위함)."
+          else
+            echo "has_open=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate draft post (+ AI images if GEMINI_API_KEY is set)
+        if: steps.check.outputs.has_open == 'false'
         id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -42,6 +56,7 @@ jobs:
         run: npm run generate:entertainment
 
       - name: Open pull request for human review
+        if: steps.check.outputs.has_open == 'false'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.PAT_TOKEN }}
