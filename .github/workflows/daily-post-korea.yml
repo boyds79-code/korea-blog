@@ -1,9 +1,11 @@
 name: Daily draft post (Korea, Explained)
 
 on:
-  schedule:
-    # 매일 UTC 0 0 * * * 실행. 카테고리별로 15분씩 시간을 나눠서 API 호출이 한 번에 몰리지 않게 했습니다.
-    - cron: '7 0 * * *'
+  # 2026-09-30: Adsense 승인이 날 때까지 자동 발행을 일시 중단합니다 (Chris 요청).
+  # 재개하려면 아래 schedule 블록의 주석(#)을 지우면 됩니다.
+  # schedule:
+  #   # 매일 UTC 0 0 * * * 실행. 카테고리별로 15분씩 시간을 나눠서 API 호출이 한 번에 몰리지 않게 했습니다.
+  #   - cron: '7 0 * * *'
   workflow_dispatch: {}
 
 permissions:
